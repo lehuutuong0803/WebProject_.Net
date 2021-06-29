@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebProject.Models.DetailedInvoice>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IntoMoney)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Food.FoodName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Invoice.Note)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntoMoney)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food.FoodName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Invoice.Note)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -47,10 +47,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -122,9 +130,57 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DetailedInvoiceController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FoodController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InvoicesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TypeOfFoodController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comment.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetailedInvoice.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Food.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FoodDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoodDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FoodDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FoodDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoodDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoice.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TypeOfFood.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -210,6 +266,16 @@
     <Content Include="js\picker.js" />
     <Content Include="js\picker.time.js" />
     <Content Include="js\popper.min.js" />
+    <Content Include="Models\FoodDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FoodDBModel.edmx</DependentUpon>
+      <LastGenOutput>FoodDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\FoodDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FoodDBModel.edmx</DependentUpon>
+      <LastGenOutput>FoodDBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Public\css\LayoutSite.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -239,6 +305,51 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <EntityDeploy Include="Models\FoodDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FoodDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FoodDBModel.edmx.diagram">
+      <DependentUpon>FoodDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\TypeOfFood\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeOfFood\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeOfFood\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeOfFood\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TypeOfFood\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Food\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Food\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Food\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Food\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Food\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoices\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoices\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoices\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoices\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoices\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DetailedInvoice\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DetailedInvoice\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DetailedInvoice\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DetailedInvoice\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DetailedInvoice\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -348,7 +459,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -360,6 +471,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

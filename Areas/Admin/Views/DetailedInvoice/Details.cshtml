@@ -1,0 +1,43 @@
+﻿@model WebProject.Models.DetailedInvoice
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DetailedInvoice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IntoMoney)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntoMoney)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Food.FoodName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food.FoodName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Invoice.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Invoice.Note)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
