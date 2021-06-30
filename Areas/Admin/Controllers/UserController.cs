@@ -10,7 +10,7 @@ using WebProject.Models;
 
 namespace WebProject.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController 
     {
         private WebProjectEntitiesDB db = new WebProjectEntitiesDB();
 

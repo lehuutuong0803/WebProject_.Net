@@ -6,11 +6,15 @@ using System.Web.Mvc;
 
 namespace WebProject.Areas.Admin.Controllers
 {
-    public class DashboardController : Controller
+    public class DashboardController : BaseController
     {
         // GET: Admin/Dashboard
         public ActionResult Index()
         {
+            if(Session["UserAdmin"].Equals(""))
+            {
+                Response.Redirect("~/Admin/Login");
+            }
             return View();
         }
     }

@@ -10,7 +10,7 @@ using WebProject.Models;
 
 namespace WebProject.Areas.Admin.Controllers
 {
-    public class TypeOfFoodController : Controller
+    public class TypeOfFoodController : BaseController
     {
         private WebProjectEntitiesDB db = new WebProjectEntitiesDB();
 
