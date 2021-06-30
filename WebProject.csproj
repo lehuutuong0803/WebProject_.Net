@@ -142,6 +142,7 @@
     <Compile Include="Areas\Admin\Controllers\TypeOfFoodController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +209,7 @@
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\responsive.css" />
+    <Content Include="css\style-login.css" />
     <Content Include="css\style.css" />
     <Content Include="css\superslides.css" />
     <Content Include="favicon.ico" />
@@ -272,6 +274,7 @@
     <Content Include="js\jquery-3.2.1.min.js" />
     <Content Include="js\jquery.mapify.js" />
     <Content Include="js\jquery.superslides.min.js" />
+    <Content Include="js\js-login.js" />
     <Content Include="js\legacy.js" />
     <Content Include="js\picker.date.js" />
     <Content Include="js\picker.js" />
@@ -473,6 +476,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\SignIn\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

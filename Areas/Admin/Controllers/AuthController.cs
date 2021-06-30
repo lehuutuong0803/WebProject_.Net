@@ -14,6 +14,7 @@ namespace WebProject.Areas.Admin.Controllers
         // GET: Admin/Auth  
         public ActionResult Login()
         {
+           
             return View();
         }
         [HttpPost]

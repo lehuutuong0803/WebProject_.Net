@@ -1,12 +1,17 @@
 ﻿using System.Web.Mvc;
+using WebProject.Models;
+using System.Linq;
 
 namespace WebProject.Controllers
 {
     public class HomeController : Controller
     {
+        WebProjectEntitiesDB dbcontext = new WebProjectEntitiesDB();
+
         public ActionResult Index()
         {
-            return View();
+            var list = dbcontext.Foods.ToList();
+            return View(list);
         }
 
         public ActionResult About()
