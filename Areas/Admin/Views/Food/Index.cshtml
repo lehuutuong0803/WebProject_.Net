@@ -5,13 +5,13 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh sách thực đơn</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type=" button" class="btn btn-danger">@Html.ActionLink("Tạo mới", "Create")</button>
 </p>
-<table class="table">
-    <tr>
+<table class="table table-hover table-secondary table-striped">
+        <tr>
         <th>
             @Html.DisplayNameFor(model => model.FoodName)
         </th>
@@ -33,32 +33,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FoodName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TypeOfFood.TypeName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfFood.TypeName)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
