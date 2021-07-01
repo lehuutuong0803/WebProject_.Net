@@ -19,10 +19,19 @@ namespace WebProject
         }
         protected void Session_Start()
         {
+            //Admin
             Session["UserAdmin"] = "";
             Session["UserID"] = "";
             Session["UserName"] = "";
+
+            //Customer
+            Session["UserCTM"] = "";
+            Session["UserIDCTM"] = "";
+            Session["UserCTMName"] = "";
+            Session["UserCTMAddress"] = "";
+            Session["UserCTMPhoneNumber"] = "";
         }
+      
 
     }
 }
