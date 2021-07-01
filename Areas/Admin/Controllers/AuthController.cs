@@ -22,7 +22,7 @@ namespace WebProject.Areas.Admin.Controllers
         {
             String username = s["username"];
             String password = s["password"];
-            User user = dbcontext.Users.Where(m => m.UserName == username || m.PassWord == password)
+            User user = dbcontext.Users.Where(m => m.UserName == username && m.PassWord == password)
                 .FirstOrDefault();
            
             string error = "";
@@ -32,15 +32,16 @@ namespace WebProject.Areas.Admin.Controllers
                 Session["UserID"] = user.ID;
                 Session["UserName"] = user.Name;
                 Response.Redirect("~/Admin");
+                
             }
             else
             {
                 error = "Tài khoản hoặc mật khuẩu không chính xác. Vui lòng thử lại! ";
                 ViewBag.Error = error;
             }
-               
+              
            
-            return View();
+            return View(user.UserName);
         }
         public ActionResult Logout()
         {

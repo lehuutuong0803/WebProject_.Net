@@ -39,72 +39,84 @@
           href="~/images/logoAdmin.png"
           type="image/png" />
     <style>
-        #navbarx {
+        .footer {
+            position: sticky;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        
         }
     </style>
 </head>
 <body>
     <div>
-    <header class="top-navbar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <h3> ADMIN</h3>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbars-rs-food">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="~/Home/Index">Quản Lý Chung</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="menu.html">Quản Lý SP</a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="~/Home/About">Quản Lý Loại</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="~/Home/About">Quản Lý HĐ</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Khác</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="reservation.html">QL X</a>
-                                <a class="dropdown-item" href="stuff.html">QL Y</a>
-                                <a class="dropdown-item" href="~/Admin/Auth/logout">Đăng xuất</a>
-                            </div>
-                        </li>
-                        
-                    </ul>
+        <header class="top-navbar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <h3> ADMIN</h3>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbars-rs-food">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="~/Admin">Quản Lý Chung</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="~/Admin/Food/Index">Quản Lý SP</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Admin/User/Index">Quản Lý User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Admin/Invoices/Index">Quản Lý HĐ</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Khác</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                    <a class="dropdown-item" href="~/Admin/TypeOfFood/Index">Loai SP</a>
+                                    <a class="dropdown-item" href="~/Admin/Contact/Index">Liên lạc</a>
+                                    <a class="dropdown-item" href="~/Admin/Comments/Index">Bình Luận</a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <a class="btn btn-outline-warning" href="~/Admin/Auth/logout">Đăng xuất</a>
+
                 </div>
-            </div>
-        </nav>
-    </header>
-     </div>
+            </nav>
+        </header>
+    </div>
     <div>
         <br /><br /><br /><br />
         @RenderBody()
     </div>
-
-
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p class="company-name">
-                            Đã đăng ký bản quyền. &copy; 2018 <a href="#">Live Dinner Restaurant</a> Thiết Kế Bởi:
-                            <a href="https://html.design/">10Real</a>
-                        </p>
+    <br  <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+    <div class="footer footer-area">
+        <footer>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="company-name">
+                                Đã đăng ký bản quyền. &copy; 2018 <a href="#">Live Dinner Restaurant</a> Thiết Kế Bởi:
+                                <a href="https://html.design/">10Real</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </footer>
+        </footer>
+    </div>
     <!-- End Footer -->
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
 
-    <script src="~/js/jquery-3.2.1.min.js"></style>
-    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/jquery-3.2.1.min.js">
+</style >
+                <script src="~/js/popper.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
 
     <!-- ALL PLUGINS huu tuongfdfadsfdsàdadssadsadsadsadsfsdfsadfsad -->

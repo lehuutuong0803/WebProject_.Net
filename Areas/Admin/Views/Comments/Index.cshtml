@@ -5,12 +5,11 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-
-<h2>Danh sách bình luận</h2>
+<h2 style="text-align:center">Danh sách bình luận</h2>
 <p>
-    <button type=" button" class="btn btn-danger">@Html.ActionLink("Tạo mới", "Create")</button>
+    <button class="btn btn-secondary" >@Html.ActionLink(" Tạo mới", "Create", null,  new { @class = "fa fa-plus fa-lg" })</button>
 </p>
-<table class="table table-hover table-secondary table-striped">
+<table class="table table-hover table-secondary table-striped" style="text-align:center">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Comment1)
@@ -37,9 +36,9 @@
                 @Html.DisplayFor(modelItem => item.User.UserName)
             </td>
             <td>
-                @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+                <button class="btn btn-outline-secondary"> @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "fa fa-edit fa-lg" })</button>
+                <button class="btn btn-outline-primary"> @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "fa fa-info fa-lg" })</button>
+                <button class="btn btn-outline-danger"> @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "fa fa-trash fa-lg" })</button>
             </td>
         </tr>
     }
