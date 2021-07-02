@@ -118,6 +118,7 @@
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="TatCa" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="row">
+                            
                             @foreach (var item in Model)
                             {
 
@@ -139,7 +140,7 @@
                         <div class="row">
                             @foreach (var item in Model)
                             {
-                                if (item.ID == 1)
+                                if (item.IDType == 1)
                                 {
                                     <div class="col-lg-4 col-md-6 special-grid drinks">
                                         <div class="gallery-single fix">
@@ -156,15 +157,17 @@
                             }
 
                         </div>
+
+                    </div>
                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                         <div class="row">
                             @foreach (var item in Model)
                             {
-
-                                if (item.ID == 2)
+                                if (item.IDType == 2)
                                 {
                                     <div class="col-lg-4 col-md-6 special-grid drinks">
                                         <div class="gallery-single fix">
+
                                             <img src="~/images/img-03.jpg" class="img-fluid" alt="Image">
                                             <div class="why-text">
                                                 <h4>@Html.DisplayFor(modelItem => item.FoodName)</h4>
@@ -183,7 +186,7 @@
                         <div class="row">
                             @foreach (var item in Model)
                             {
-                                if (item.ID == 3)
+                                if (item.IDType == 3)
                                 {
                                     <div class="col-lg-4 col-md-6 special-grid drinks">
                                         <div class="gallery-single fix">
@@ -202,7 +205,9 @@
 
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
 

@@ -10,58 +10,69 @@
     <meta name="viewport" content="width=device-width" />
     <link href="~/css/style-login.css" rel="stylesheet" />
     <title>Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/font-awesome.min.css"
+      ><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #social-container {
+            padding: 0px;
+            margin: 0px;
+            width: auto;
+        }
+  
+    </style>
 </head>
 <body>
-    <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
+    <h2>Chào mừng đến với Dinner Live Restaurant!</h2>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="~/SignIn/Login" method="post">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <h1>Tạo tài khoản</h1>
+                <div class="social-container" id="social-container">
+                    <a href="#" class=" fa fa-google"></a>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
                 </div>
-                <span>or use your email for registration</span>
-              
-                <input type="text" placeholder="Tên Tài Khoản"  name="tentaikhoan"/>
-                <input type="password" placeholder="Mật Khẩu" name="matkhau"/>
-                <input type="email" placeholder="Email" name="email"/>
-                <input type="text" placeholder="Họ Tên" name="hoten"/>
-                <input type="text" placeholder="Địa Chỉ" name="diachi"/>
-                <input type="text" placeholder="SDT" name="sdt"/>
-                <button type="submit" value="Register">Đăng Ký</button>
-                
+                <span>Hoặc dùng gmail để đăng ký</span>
 
+                <input type="text" placeholder="Tên Tài Khoản" name="tentaikhoan" />
+                <input type="password" placeholder="Mật Khẩu" name="matkhau" />
+                <input type="email" placeholder="Email" name="email" />
+                <input type="text" placeholder="Họ Tên" name="hoten" />
+                <input type="text" placeholder="Địa Chỉ" name="diachi" />
+                <input type="text" placeholder="SDT" name="sdt" />
+                <button type="submit" value="Register">Đăng Ký</button>
+
+                    
             </form>
         </div>
+
         <div class="form-container sign-in-container">
             <form action="~/SignIn/Login1" method="post">
-                <h1>Sign in</h1>
+                <h1>Đăng nhập</h1>
                 <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class=" fa fa-google"></a>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
                 </div>
-                <span>or use your account</span>
+                <span>Đăng nhập với tài khoản khác</span>
                 <p class="text-danger">@ViewBag.Inform</p>
-                <input type="text" placeholder="Tên đăng nhập" name="tentaikhoan"/>
-                <input type="password" placeholder="Mật khẩu" name="matkhau"/>
-                <a href="#">Forgot your password?</a>
+                <input type="text" placeholder="Tên đăng nhập" name="tentaikhoan" />
+                <input type="password" placeholder="Mật khẩu" name="matkhau" />
+                <a href="#">Quên mật khẩu?</a>
                 <button type="submit">Đăng Nhập</button>
             </form>
         </div>
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
+                    <h1>Chào mừng trở lại</h1>
+                    <p>Nếu bạn là người cũ, hãy đăng nhập ở đây</p>
+                    <button class="ghost" id="signIn">Đăng nhập</button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <h1>Xin Chào!</h1>
+                    <p>Hãy đăng ký tài khoản để bắt đầu cuộc hành trình với chúng tôi.</p>
+                    <button class="ghost" id="signUp">Đăng ký</button>
                 </div>
             </div>
         </div>
