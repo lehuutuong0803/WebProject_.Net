@@ -6,8 +6,62 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+@{ 
+    var timeSpan = System.DateTime.Now;
+}
+<style>
+    .xuantu div {
+       display:inline-block;
+       align-self:center;
+    }
+    .xuantu {
+        margin: auto;
+        padding: 10px;
+        width:auto;
+        padding-left:25px;
+    }
+     
+</style>
 
-@Html.DisplayNameFor(model => model.UserName)
-
-<h1> </h1>
-
+<h3> Thời gian đăng nhập gần nhất : @timeSpan</h3> <br />
+<div class="container w3-row xuantu" >
+    <div class="card text-white bg-secondary" style="max-width: 21rem;">
+        <div class="card-header" style="text-align:center"><h3>Người dùng:</div>
+        <div class="card-body">
+            <p class="card-text">Hiện tại số người dùng của hệ thống là: @Session["AmountOfUser"] </p>
+        </div>
+    </div>
+    <div class="card text-white bg-secondary " style="max-width: 21rem;   ">
+        <div class="card-header" style="text-align:center"><h3>Sản phẩm:</div>
+        <div class="card-body">
+            <p class="card-text">Hiện tại số sản phẩm có trong hệ thống là: @Session["AmountOfFood"]</p>
+        </div>
+    </div>
+    <div class="card text-white bg-secondary" style="max-width: 21rem;">
+        <div class="card-header" style="text-align:center"><h3>Bình luận:</div>
+        <div class="card-body">
+            <p class="card-text">Hiện tại số bình luận có trong hệ thống là:  @Session["AmountOfComment"]</p>
+        </div>
+    </div>
+</div>
+<br /><br />
+<div class="container w3-row xuantu">
+    <div class="card text-white bg-secondary" style="max-width: 21rem;">
+        <div class="card-header" style="text-align:center"><h3>Số loại sản phẩm:</div>
+        <div class="card-body">
+            <p class="card-text">Hiện tại số loại SP của hệ thống là: @Session["AmountOfTypeFood"] </p>
+        </div>
+    </div>
+    <div class="card text-white bg-secondary " style="max-width: 21rem;   ">
+        <div class="card-header" style="text-align:center"><h3>Số hóa đơn:</div>
+        <div class="card-body">
+            <p class="card-text">Hiện tại số hóa đơn có trong hệ thống là: @Session["AmountOfInvoice"]</p>
+        </div>
+    </div>
+    <div class="card text-white bg-secondary" style="max-width: 21rem;">
+        <div class="card-header" style="text-align:center"><h3>Account Details:</div>
+        <div class="card-body">
+            <p class="card-text">UserName: @Session["UserName"] | UserAdmin: @Session["UserAdmin"]</p>
+        </div>
+    </div>
+</div>

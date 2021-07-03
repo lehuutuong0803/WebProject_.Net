@@ -24,7 +24,20 @@ namespace WebProject.Areas.Admin.Controllers
             String password = s["password"];
             User user = dbcontext.Users.Where(m => m.UserName == username && m.PassWord == password)
                 .FirstOrDefault();
-           
+
+            int y = dbcontext.Users.Where(m => true).Count();
+            Session["AmountOfUser"] = y;
+            y= dbcontext.Foods.Where(m => true).Count();
+            Session["AmountOfFood"] = y;
+            y = dbcontext.TypeOfFoods.Where(m => true).Count();
+            Session["AmountOfTypeFood"] = y;
+            y = dbcontext.Comments.Where(m => true).Count();
+            Session["AmountOfComment"] = y;
+            y = dbcontext.Invoices.Where(m => true).Count();
+            Session["AmountOfInvoice"] = y;
+
+
+
             string error = "";
             if (user != null)
             {
@@ -41,7 +54,7 @@ namespace WebProject.Areas.Admin.Controllers
             }
               
            
-            return View(user.UserName);
+            return View();
         }
         public ActionResult Logout()
         {
