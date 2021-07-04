@@ -21,7 +21,7 @@
                 </div>
             </div>
         </li>
-        <li class="text-left"
+        <li class="text-left">
             <img src="~/images/slider-02.jpg" alt="">
             <div class="container">
                 <div class="row">
@@ -124,11 +124,16 @@
 
                                 <div class="col-lg-4 col-md-6 special-grid drinks">
                                     <div class="gallery-single fix">
-                                        <img src="~/images/img-01.jpg" class="img-fluid" alt="Image">
+                                        <img src="~/images/@item.Image" class="img-fluid" alt="Image">
                                         <div class="why-text">
                                             <h4>@Html.DisplayFor(modelItem => item.FoodName)</h4>
                                             <p>@Html.DisplayFor(modelItem => item.Description)</p>
-                                            <h5> @Html.DisplayFor(modelItem => item.Price)</h5>
+                                            <h5>
+                                                @Html.DisplayFor(modelItem => item.Price)
+
+                                            </h5>
+                                            <a href="~/ShoppingCart/AddToCart/@item.ID"><img src="~/images/giohang2.png" style="width:60px;height:35px" /></a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +149,7 @@
                                 {
                                     <div class="col-lg-4 col-md-6 special-grid drinks">
                                         <div class="gallery-single fix">
-                                            <img src="~/images/img-03.jpg" class="img-fluid" alt="Image">
+                                            <img src="~/images/@item.Image" class="img-fluid" alt="Image">
                                             <div class="why-text">
                                                 <h4>@Html.DisplayFor(modelItem => item.FoodName)</h4>
                                                 <p>@Html.DisplayFor(modelItem => item.Description)</p>
@@ -168,7 +173,7 @@
                                     <div class="col-lg-4 col-md-6 special-grid drinks">
                                         <div class="gallery-single fix">
 
-                                            <img src="~/images/img-03.jpg" class="img-fluid" alt="Image">
+                                            <img src="~/images/@item.Image" class="img-fluid" alt="Image">
                                             <div class="why-text">
                                                 <h4>@Html.DisplayFor(modelItem => item.FoodName)</h4>
                                                 <p>@Html.DisplayFor(modelItem => item.Description)</p>
@@ -190,7 +195,7 @@
                                 {
                                     <div class="col-lg-4 col-md-6 special-grid drinks">
                                         <div class="gallery-single fix">
-                                            <img src="~/images/img-03.jpg" class="img-fluid" alt="Image">
+                                            <img src="~/images/@item.Image" class="img-fluid" alt="Image">
                                             <div class="why-text">
                                                 <h4>@Html.DisplayFor(modelItem => item.FoodName)</h4>
                                                 <p>@Html.DisplayFor(modelItem => item.Description)</p>

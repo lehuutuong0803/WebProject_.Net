@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,15 +49,26 @@ namespace WebProject.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FoodName,Price,IDType,Status,Description,Image")] Food food)
+        public ActionResult Create([Bind(Include = "ID,FoodName,Price,IDType,Status,Description,Image")] Food food,HttpPostedFileBase image)
         {
+            
             if (ModelState.IsValid)
             {
+                int id = int.Parse(db.Foods.ToList().Last().ID.ToString());
+
+                string fileName = "";
+                int id1 = id + 1;
+                int index = image.FileName.IndexOf('.');
+                fileName = "food" + id1.ToString()+ "." + image.FileName.Substring(index+1);
+                string path = Path.Combine(Server.MapPath("~/images"), fileName);
+                image.SaveAs(path);
+
+               
+                food.Image = fileName;
                 db.Foods.Add(food);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.IDType = new SelectList(db.TypeOfFoods, "ID", "TypeName", food.IDType);
             return View(food);
         }
@@ -82,10 +94,22 @@ namespace WebProject.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FoodName,Price,IDType,Status,Description,Image")] Food food)
+        public ActionResult Edit([Bind(Include = "ID,FoodName,Price,IDType,Status,Description,Image")] Food food, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
+                int id = food.ID;
+                string fileName = "";
+                int id1 = id + 1;
+                DateTime date = DateTime.Today;
+                int index = image.FileName.IndexOf('.');
+                fileName = "foodEdit" + id1.ToString()+date.ToString("HH-mm-ss") + "." + image.FileName.Substring(index + 1);
+                string path = Path.Combine(Server.MapPath("~/images"), fileName);
+                image.SaveAs(path);
+
+
+                food.Image = fileName;
+
                 db.Entry(food).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

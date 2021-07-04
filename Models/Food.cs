@@ -11,7 +11,9 @@ namespace WebProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.Web;
+
     public partial class Food
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,7 +29,10 @@ namespace WebProject.Models
         public Nullable<int> IDType { get; set; }
         public Nullable<int> Status { get; set; }
         public string Description { get; set; }
+        [DisplayName("Upload File")]
         public string Image { get; set; }
+
+        public HttpPostedFileBase ImageFile { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }

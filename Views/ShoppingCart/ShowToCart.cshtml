@@ -1,0 +1,70 @@
+﻿@model WebProject.Models.Cart
+@{
+    ViewBag.Title = "ShowToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowToCart</h2>
+@if(Model != null)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                FoodName
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Quantity
+                            </th>
+                            <th>
+                               Sum
+                            </th>
+                            <th> Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model.Items)
+                        {
+                            double total = Convert.ToDouble( item.food_Cart.Price.Value * item.quantity_Cart);
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model =>  item.food_Cart.FoodName )
+                                </td>
+                                <td>
+                                    <img src="~/images/@item.food_Cart.Image" style="width:100px;height:100px" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.food_Cart.Price)
+                                </td>
+                                <td>
+                                    @using (Html.BeginForm("Update_Quantity", "ShoppingCart"))
+                                    {
+                                        <input type="hidden" value="@item.food_Cart.ID" name="ID_Food" />
+                                        <input type="number" value="@item.quantity_Cart" name="Quantity" />
+                                        <input type="submit" value="Cập nhật số lượng" />
+                                    }
+
+                                </td>
+                                <td>
+                                    Total: @total
+                                </td>
+                                <td>
+                                    <a href="~/ShoppingCart/RemoveCart/@item.food_Cart.ID">Remove</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" style="text-align:right">Tong Tien: @Model.Total()</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <a href="~/Home/Index" >Tiep tuc mua sam</a>
+            }
