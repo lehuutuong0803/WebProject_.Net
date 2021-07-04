@@ -64,6 +64,7 @@ namespace WebProject.Controllers
                 return View("Login");
             }
             Session["Status"] = "1";
+            Session["CustomerName"] = search.Name; 
 
             return View();
           }
@@ -71,6 +72,7 @@ namespace WebProject.Controllers
         public ActionResult Logout()
         {
             Session["Status"] = null;
+            Session["CustomerName"] = null;
             Response.Redirect("~/Home/Index");
             return null;
         }
