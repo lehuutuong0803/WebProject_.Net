@@ -72,8 +72,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="~/Home/Contact">Contact</a>
                         </li>
+                        @{
+                            var text = "Đăng Nhập";
+                            var hre = "/SignIn/Login";
+
+                            if (Session["Status"] != null) { text = "Đăng Xuất"; hre = "/SignIn/Logout"; }
+                        }
                         <li class="nav-item">
-                            <a class="nav-link" href="~/SignIn/Login">Sign In</a>
+                            <a class="nav-link" href=@hre>@text <a>
                         </li>
                     </ul>
                 </div>

@@ -63,9 +63,17 @@ namespace WebProject.Controllers
                 //Response.Redirect("~/SignIn/Login");
                 return View("Login");
             }
+            Session["Status"] = "1";
 
-              return View();
+            return View();
           }
+
+        public ActionResult Logout()
+        {
+            Session["Status"] = null;
+            Response.Redirect("~/Home/Index");
+            return null;
+        }
 
     }
 }
