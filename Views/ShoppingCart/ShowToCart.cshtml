@@ -4,28 +4,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ShowToCart</h2>
+<h2>Giỏ Hàng:</h2>
 @if(Model != null)
             {
-                <table class="table">
+                <table class="table" style="text-align:center;">
                     <thead>
                         <tr>
                             <th>
-                                FoodName
+                                Tên món ăn
                             </th>
                             <th>
-                                Image
+                                Ảnh Minh Họa
                             </th>
                             <th>
                                 Price
                             </th>
                             <th>
-                                Quantity
+                                Số Lượng
                             </th>
                             <th>
-                               Sum
+                               Giá Tiền
                             </th>
-                            <th> Delete</th>
+                            <th> Tác Vụ</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,29 +42,30 @@
                                 <td>
                                     @Html.DisplayFor(model => item.food_Cart.Price)
                                 </td>
-                                <td>
+                                <td style="text-align:right;">
                                     @using (Html.BeginForm("Update_Quantity", "ShoppingCart"))
                                     {
                                         <input type="hidden" value="@item.food_Cart.ID" name="ID_Food" />
-                                        <input type="number" value="@item.quantity_Cart" name="Quantity" />
-                                        <input type="submit" value="Cập nhật số lượng" />
+                                        <input type="number" style="width:40px;text-align:center;" value="@item.quantity_Cart" name="Quantity" />
+                                        <input type="submit" style="margin-left:30px;" value="Cập nhật số lượng" class=" btn btn-danger btn "/>
                                     }
 
                                 </td>
                                 <td>
-                                    Total: @total
+                                    @total VND
                                 </td>
                                 <td>
-                                    <a href="~/ShoppingCart/RemoveCart/@item.food_Cart.ID">Remove</a>
+                                    <a href="~/ShoppingCart/RemoveCart/@item.food_Cart.ID">Xóa</a>
                                 </td>
                             </tr>
                         }
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5" style="text-align:right">Tong Tien: @Model.Total()</td>
+                            <td colspan="5" style="text-align:right">Tổng tiền: @Model.Total() VND</td>
                         </tr>
                     </tfoot>
                 </table>
-                <a href="~/Home/Index" >Tiep tuc mua sam</a>
+                
             }
+<a href="~/Home/Index" class="btn btn-secondary d-flex justify-content-center">Tiếp tục mua sắm</a>

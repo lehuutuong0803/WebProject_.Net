@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
 <!-- Start slides -->
 <div id="slides" class="cover-slides">
     <ul class="slides-container">
@@ -122,7 +121,7 @@
                             @foreach (var item in Model)
                             {
 
-                                <div class="col-lg-4 col-md-6 special-grid drinks">
+                                <div class="col-lg-4 col-md-6 special-grid drinks" style="text-align:center;">
                                     <div class="gallery-single fix">
                                         <img src="~/images/@item.Image" class="img-fluid" alt="Image">
                                         <div class="why-text">
@@ -132,8 +131,7 @@
                                                 @Html.DisplayFor(modelItem => item.Price)
 
                                             </h5>
-                                            <a href="~/ShoppingCart/AddToCart/@item.ID"><img src="~/images/giohang2.png" style="width:60px;height:35px" /></a>
-
+                                            <a  href="~/ShoppingCart/AddToCart/@item.ID" class="fa fa-cart-plus fa-2x"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -147,13 +145,14 @@
                             {
                                 if (item.IDType == 1)
                                 {
-                                    <div class="col-lg-4 col-md-6 special-grid drinks">
+                                    <div class="col-lg-4 col-md-6 special-grid drinks" style="text-align:center;">
                                         <div class="gallery-single fix">
                                             <img src="~/images/@item.Image" class="img-fluid" alt="Image">
                                             <div class="why-text">
                                                 <h4>@Html.DisplayFor(modelItem => item.FoodName)</h4>
                                                 <p>@Html.DisplayFor(modelItem => item.Description)</p>
                                                 <h5> @Html.DisplayFor(modelItem => item.Price)</h5>
+                                                <a href="~/ShoppingCart/AddToCart/@item.ID" class="fa fa-cart-plus fa-2x"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -170,7 +169,7 @@
                             {
                                 if (item.IDType == 2)
                                 {
-                                    <div class="col-lg-4 col-md-6 special-grid drinks">
+                                    <div class="col-lg-4 col-md-6 special-grid drinks" style="text-align:center;">
                                         <div class="gallery-single fix">
 
                                             <img src="~/images/@item.Image" class="img-fluid" alt="Image">
@@ -178,6 +177,7 @@
                                                 <h4>@Html.DisplayFor(modelItem => item.FoodName)</h4>
                                                 <p>@Html.DisplayFor(modelItem => item.Description)</p>
                                                 <h5> @Html.DisplayFor(modelItem => item.Price)</h5>
+                                                <a href="~/ShoppingCart/AddToCart/@item.ID" class="fa fa-cart-plus fa-2x"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -193,13 +193,14 @@
                             {
                                 if (item.IDType == 3)
                                 {
-                                    <div class="col-lg-4 col-md-6 special-grid drinks">
+                                    <div class="col-lg-4 col-md-6 special-grid drinks" style="text-align:center;">
                                         <div class="gallery-single fix">
                                             <img src="~/images/@item.Image" class="img-fluid" alt="Image">
                                             <div class="why-text">
                                                 <h4>@Html.DisplayFor(modelItem => item.FoodName)</h4>
                                                 <p>@Html.DisplayFor(modelItem => item.Description)</p>
                                                 <h5> @Html.DisplayFor(modelItem => item.Price)</h5>
+                                                <a href="~/ShoppingCart/AddToCart/@item.ID" class="fa fa-cart-plus fa-2x"></a>
                                             </div>
                                         </div>
                                     </div>
