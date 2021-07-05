@@ -52,7 +52,11 @@
 }
 <body>
     <div id="cart_button">
-        <button class="btn btn-danger" style="display:@cart_show;"> @Html.ActionLink(" ", "..//ShoppingCart/BagCart", null, new { @class = "fa fa-shopping-cart fa-lg" })</button>
+        <button class="btn btn-danger" style="display:@cart_show;">
+            @Html.ActionLink(" ", "..//ShoppingCart/BagCart", null, new { @class = "fa fa-shopping-cart fa-lg" })
+            @Html.Action("BagCart", "ShoppingCart", new { @class = "bg-danger" })
+
+        </button>
     </div>
 
     <header class="top-navbar">
