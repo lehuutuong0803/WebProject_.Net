@@ -1,0 +1,60 @@
+﻿@model WebProject.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center;">Xin Chào <h4 style="text-align:center;">User @Html.DisplayFor(model => model.UserName)</h4></h2>
+
+<div  style="text-align:center;">
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tài khoản người dùng: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            Tên người dùng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+           Địa chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            Số điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            Email:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p style="text-align:center;">
+    @Html.ActionLink("Chỉnh sửa thông tin", "Edit", new { id = Model.ID }) 
+</p>
+
+

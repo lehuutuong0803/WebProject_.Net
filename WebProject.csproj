@@ -196,6 +196,7 @@
     <Compile Include="Context\DbContextLocal.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SelfUserController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Global.asax.cs">
@@ -545,6 +546,11 @@
     <Content Include="Views\Forum\AddReturn.cshtml" />
     <Content Include="Views\ShoppingCart\ShowToCart.cshtml" />
     <Content Include="Views\ShoppingCart\BagCart.cshtml" />
+    <Content Include="Views\SelfUser\Create.cshtml" />
+    <Content Include="Views\SelfUser\Delete.cshtml" />
+    <Content Include="Views\SelfUser\Details.cshtml" />
+    <Content Include="Views\SelfUser\Edit.cshtml" />
+    <Content Include="Views\SelfUser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

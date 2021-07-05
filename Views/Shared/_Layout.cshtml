@@ -37,8 +37,8 @@
     <style>
         #cart_button {
             position: fixed;
-            bottom: 90px;
-            right: 30px;
+            top: 30px;
+            right: 100px;
             z-index: 100000000;
         }
     </style>
@@ -52,8 +52,8 @@
 }
 <body>
     <div id="cart_button">
-        <button class="btn btn-danger" style="display:@cart_show;">
-            @Html.ActionLink(" ", "..//ShoppingCart/BagCart", null, new { @class = "fa fa-shopping-cart fa-lg" })
+        <button class="btn bg-transparent " style="display:@cart_show;">
+            @Html.ActionLink(" ", "..//ShoppingCart/ShowToCart", null, new { @class = "fa fa-shopping-cart fa-lg" })
             @Html.Action("BagCart", "ShoppingCart", new { @class = "bg-danger" })
 
         </button>
@@ -97,7 +97,7 @@
                         </li>
                         <li class="nav-item">
                             <div style="display:@cart_show;">
-                                <a class="nav-link" href="~/Home/Contact">@Session["CustomerName"]  <i class="fa fa-user"></i></a>
+                                <a class="nav-link" href="~/selfUser/Details/@Session["UserIDCTM"]">@Session["CustomerName"]  <i class="fa fa-user"></i></a>
                             </div>
                         </li>
                         <li class="nav-item">
