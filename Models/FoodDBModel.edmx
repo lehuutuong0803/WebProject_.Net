@@ -5,6 +5,29 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="WebProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BasicSettings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeOfBasicSettings" Type="int" Nullable="false" />
+          <Property Name="BoolValue" Type="bit" Nullable="false" />
+          <Property Name="IntValue" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Default" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="ID" />
@@ -32,6 +55,36 @@
           <Property Name="IDInvoice" Type="int" Nullable="false" />
           <Property Name="IDFood" Type="int" Nullable="false" />
           <Property Name="IntoMoney" Type="float" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="EntityProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Entity" Type="nvarchar(max)" />
+          <Property Name="OriginalType" Type="nvarchar(max)" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Default" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EntityProfileItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Group" Type="nvarchar(max)" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+          <Property Name="VisibleInTheGrid" Type="bit" Nullable="false" />
+          <Property Name="Required" Type="bit" Nullable="false" />
+          <Property Name="Advanced" Type="bit" Nullable="false" />
+          <Property Name="Searchable" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Default" Type="bit" Nullable="false" />
+          <Property Name="EntityProfile_ID" Type="int" />
         </EntityType>
         <EntityType Name="Food">
           <Key>
@@ -44,6 +97,17 @@
           <Property Name="Status" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Image" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="UpdateDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Default" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Invoice">
           <Key>
@@ -109,6 +173,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_EntityProfileItem_dbo_EntityProfile_EntityProfile_ID">
+          <End Role="EntityProfile" Type="Self.EntityProfile" Multiplicity="0..1" />
+          <End Role="EntityProfileItem" Type="Self.EntityProfileItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EntityProfileItem">
+              <PropertyRef Name="EntityProfile_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DetailedInvoice_Food">
           <End Role="Food" Type="Self.Food" Multiplicity="1" />
           <End Role="DetailedInvoice" Type="Self.DetailedInvoice" Multiplicity="*" />
@@ -158,10 +234,15 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="WebProjectModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BasicSettings" EntityType="Self.BasicSettings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DetailedInvoice" EntityType="Self.DetailedInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntityProfile" EntityType="Self.EntityProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntityProfileItem" EntityType="Self.EntityProfileItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forum" EntityType="Self.Forum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeOfFood" EntityType="Self.TypeOfFood" Schema="dbo" store:Type="Tables" />
@@ -173,6 +254,10 @@
           <AssociationSet Name="FK_Comment_User" Association="Self.FK_Comment_User">
             <End Role="User" EntitySet="User" />
             <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_EntityProfileItem_dbo_EntityProfile_EntityProfile_ID" Association="Self.FK_dbo_EntityProfileItem_dbo_EntityProfile_EntityProfile_ID">
+            <End Role="EntityProfile" EntitySet="EntityProfile" />
+            <End Role="EntityProfileItem" EntitySet="EntityProfileItem" />
           </AssociationSet>
           <AssociationSet Name="FK_DetailedInvoice_Food" Association="Self.FK_DetailedInvoice_Food">
             <End Role="Food" EntitySet="Food" />
@@ -196,6 +281,29 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BasicSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeOfBasicSettings" Type="Int32" Nullable="false" />
+          <Property Name="BoolValue" Type="Boolean" Nullable="false" />
+          <Property Name="IntValue" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Default" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="ID" />
@@ -225,8 +333,40 @@
           <Property Name="IDInvoice" Type="Int32" Nullable="false" />
           <Property Name="IDFood" Type="Int32" Nullable="false" />
           <Property Name="IntoMoney" Type="Double" />
+          <Property Name="Quantity" Type="Int32" />
           <NavigationProperty Name="Food" Relationship="Self.FK_DetailedInvoice_Food" FromRole="DetailedInvoice" ToRole="Food" />
           <NavigationProperty Name="Invoice" Relationship="Self.FK_DetailedInvoice_Invoice" FromRole="DetailedInvoice" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="EntityProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Entity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OriginalType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Default" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EntityProfileItems" Relationship="Self.FK_dbo_EntityProfileItem_dbo_EntityProfile_EntityProfile_ID" FromRole="EntityProfile" ToRole="EntityProfileItem" />
+        </EntityType>
+        <EntityType Name="EntityProfileItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <Property Name="VisibleInTheGrid" Type="Boolean" Nullable="false" />
+          <Property Name="Required" Type="Boolean" Nullable="false" />
+          <Property Name="Advanced" Type="Boolean" Nullable="false" />
+          <Property Name="Searchable" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Default" Type="Boolean" Nullable="false" />
+          <Property Name="EntityProfile_ID" Type="Int32" />
+          <NavigationProperty Name="EntityProfile" Relationship="Self.FK_dbo_EntityProfileItem_dbo_EntityProfile_EntityProfile_ID" FromRole="EntityProfileItem" ToRole="EntityProfile" />
         </EntityType>
         <EntityType Name="Food">
           <Key>
@@ -242,6 +382,17 @@
           <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Food" FromRole="Food" ToRole="Comment" />
           <NavigationProperty Name="DetailedInvoices" Relationship="Self.FK_DetailedInvoice_Food" FromRole="Food" ToRole="DetailedInvoice" />
           <NavigationProperty Name="TypeOfFood" Relationship="Self.FK_Food_TypeOfFood" FromRole="Food" ToRole="TypeOfFood" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Default" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Invoice">
           <Key>
@@ -336,6 +487,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_EntityProfileItem_dbo_EntityProfile_EntityProfile_ID">
+          <End Role="EntityProfile" Type="Self.EntityProfile" Multiplicity="0..1" />
+          <End Role="EntityProfileItem" Type="Self.EntityProfileItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntityProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EntityProfileItem">
+              <PropertyRef Name="EntityProfile_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Food_TypeOfFood">
           <End Role="TypeOfFood" Type="Self.TypeOfFood" Multiplicity="0..1" />
           <End Role="Food" Type="Self.Food" Multiplicity="*" />
@@ -360,11 +523,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WebProjectEntitiesDB" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WebProjectEntitiesDB1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="BasicSettings" EntityType="Self.BasicSetting" />
           <EntitySet Name="Comments" EntityType="Self.Comment" />
           <EntitySet Name="Contacts" EntityType="Self.Contact" />
           <EntitySet Name="DetailedInvoices" EntityType="Self.DetailedInvoice" />
+          <EntitySet Name="EntityProfiles" EntityType="Self.EntityProfile" />
+          <EntitySet Name="EntityProfileItems" EntityType="Self.EntityProfileItem" />
           <EntitySet Name="Foods" EntityType="Self.Food" />
+          <EntitySet Name="Fora" EntityType="Self.Forum" />
           <EntitySet Name="Invoices" EntityType="Self.Invoice" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TypeOfFoods" EntityType="Self.TypeOfFood" />
@@ -385,6 +553,10 @@
             <End Role="Invoice" EntitySet="Invoices" />
             <End Role="DetailedInvoice" EntitySet="DetailedInvoices" />
           </AssociationSet>
+          <AssociationSet Name="FK_dbo_EntityProfileItem_dbo_EntityProfile_EntityProfile_ID" Association="Self.FK_dbo_EntityProfileItem_dbo_EntityProfile_EntityProfile_ID">
+            <End Role="EntityProfile" EntitySet="EntityProfiles" />
+            <End Role="EntityProfileItem" EntitySet="EntityProfileItems" />
+          </AssociationSet>
           <AssociationSet Name="FK_Food_TypeOfFood" Association="Self.FK_Food_TypeOfFood">
             <End Role="TypeOfFood" EntitySet="TypeOfFoods" />
             <End Role="Food" EntitySet="Foods" />
@@ -399,7 +571,31 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebProjectModelStoreContainer" CdmEntityContainer="WebProjectEntitiesDB">
+        <EntityContainerMapping StorageEntityContainer="WebProjectModelStoreContainer" CdmEntityContainer="WebProjectEntitiesDB1">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="WebProjectModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BasicSettings">
+            <EntityTypeMapping TypeName="WebProjectModel.BasicSetting">
+              <MappingFragment StoreEntitySet="BasicSettings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TypeOfBasicSettings" ColumnName="TypeOfBasicSettings" />
+                <ScalarProperty Name="BoolValue" ColumnName="BoolValue" />
+                <ScalarProperty Name="IntValue" ColumnName="IntValue" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Default" ColumnName="Default" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="WebProjectModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
@@ -427,6 +623,38 @@
                 <ScalarProperty Name="IDInvoice" ColumnName="IDInvoice" />
                 <ScalarProperty Name="IDFood" ColumnName="IDFood" />
                 <ScalarProperty Name="IntoMoney" ColumnName="IntoMoney" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntityProfiles">
+            <EntityTypeMapping TypeName="WebProjectModel.EntityProfile">
+              <MappingFragment StoreEntitySet="EntityProfile">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Entity" ColumnName="Entity" />
+                <ScalarProperty Name="OriginalType" ColumnName="OriginalType" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Default" ColumnName="Default" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntityProfileItems">
+            <EntityTypeMapping TypeName="WebProjectModel.EntityProfileItem">
+              <MappingFragment StoreEntitySet="EntityProfileItem">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="VisibleInTheGrid" ColumnName="VisibleInTheGrid" />
+                <ScalarProperty Name="Required" ColumnName="Required" />
+                <ScalarProperty Name="Advanced" ColumnName="Advanced" />
+                <ScalarProperty Name="Searchable" ColumnName="Searchable" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Default" ColumnName="Default" />
+                <ScalarProperty Name="EntityProfile_ID" ColumnName="EntityProfile_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -440,6 +668,18 @@
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fora">
+            <EntityTypeMapping TypeName="WebProjectModel.Forum">
+              <MappingFragment StoreEntitySet="Forum">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Default" ColumnName="Default" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

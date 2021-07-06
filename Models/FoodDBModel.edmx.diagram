@@ -4,19 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="76e6274020b7476ebd66b32a11e1f78b" Name="Diagram1">
-        <EntityTypeShape EntityType="WebProjectModel.Comment" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjectModel.Contact" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+      <Diagram DiagramId="bffed31375364507a95f5fa0343ce467" Name="Diagram1">
+        <EntityTypeShape EntityType="WebProjectModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.BasicSetting" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.Comment" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.Contact" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="WebProjectModel.DetailedInvoice" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjectModel.Food" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjectModel.Invoice" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjectModel.sysdiagram" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.EntityProfile" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.EntityProfileItem" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.Food" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.Forum" Width="1.5" PointX="2.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.Invoice" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.sysdiagram" Width="1.5" PointX="10.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="WebProjectModel.TypeOfFood" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjectModel.User" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.User" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
         <AssociationConnector Association="WebProjectModel.FK_Comment_Food" ManuallyRouted="false" />
         <AssociationConnector Association="WebProjectModel.FK_Comment_User" ManuallyRouted="false" />
         <AssociationConnector Association="WebProjectModel.FK_DetailedInvoice_Food" ManuallyRouted="false" />
         <AssociationConnector Association="WebProjectModel.FK_DetailedInvoice_Invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="WebProjectModel.FK_dbo_EntityProfileItem_dbo_EntityProfile_EntityProfile_ID" ManuallyRouted="false" />
         <AssociationConnector Association="WebProjectModel.FK_Food_TypeOfFood" ManuallyRouted="false" />
         <AssociationConnector Association="WebProjectModel.FK_Invoice_User" ManuallyRouted="false" />
       </Diagram>

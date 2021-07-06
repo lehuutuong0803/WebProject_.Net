@@ -9,7 +9,14 @@ namespace WebProject.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        WebProjectEntitiesDB db = new WebProjectEntitiesDB();
+        WebProjectEntitiesDB1 db = new WebProjectEntitiesDB1();
+
+
+        public ActionResult Index()
+        {
+
+            return View();
+        }
         // GET: ShoppingCart
         public Cart GetCart()
         {
@@ -35,7 +42,7 @@ namespace WebProject.Controllers
         {
             if(Session["Cart"] ==null)
             {
-                return RedirectToAction("ShowToCart", "ShoppingCart");
+                return RedirectToAction("Index", "ShoppingCart");
             }
             else
             {
@@ -68,5 +75,40 @@ namespace WebProject.Controllers
             ViewBag.InforCart = t_item;
             return PartialView("BagCart");
         }
+        public ActionResult Success()
+        {
+            return View();
+        }
+        public ActionResult Order(FormCollection s )
+        {
+            try
+            {
+                Invoice invoice = new Invoice();
+                Cart cart = Session["Cart"] as Cart;
+                invoice.IDCustomer = (int?)Session["UserIDCTM"];
+                invoice.Note = s["Note"];
+                invoice.TotalPrice = cart.Total();
+                invoice.Date = DateTime.Now;
+                invoice.Status = 0;
+                db.Invoices.Add(invoice);
+                foreach (var item in cart.Items)
+                {
+                    DetailedInvoice detailedInvoice = new DetailedInvoice();
+                    detailedInvoice.IDInvoice = invoice.ID;
+                    detailedInvoice.IDFood = item.food_Cart.ID;
+                    detailedInvoice.IntoMoney = item.quantity_Cart * item.food_Cart.Price;
+                    detailedInvoice.Quantity = item.quantity_Cart;
+                    db.DetailedInvoices.Add(detailedInvoice);
+                }
+                db.SaveChanges();
+                return RedirectToAction("Success", "ShoppingCart");
+            }
+            catch
+            {
+                return Content("Bạn chưa đăng nhập hoặc xuất hiện lỗi bất ngờ. Vui lòng thử lại!");
+            }
+           
+        }
+       
     }
 }

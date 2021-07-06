@@ -13,10 +13,10 @@ namespace WebProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebProjectEntitiesDB : DbContext
+    public partial class WebProjectEntitiesDB1 : DbContext
     {
-        public WebProjectEntitiesDB()
-            : base("name=WebProjectEntitiesDB")
+        public WebProjectEntitiesDB1()
+            : base("name=WebProjectEntitiesDB1")
         {
         }
     
@@ -25,10 +25,15 @@ namespace WebProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<BasicSetting> BasicSettings { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<DetailedInvoice> DetailedInvoices { get; set; }
+        public virtual DbSet<EntityProfile> EntityProfiles { get; set; }
+        public virtual DbSet<EntityProfileItem> EntityProfileItems { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
+        public virtual DbSet<Forum> Fora { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfFood> TypeOfFoods { get; set; }

@@ -12,14 +12,11 @@ namespace WebProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DetailedInvoice
+    public partial class C__MigrationHistory
     {
-        public int IDInvoice { get; set; }
-        public int IDFood { get; set; }
-        public Nullable<double> IntoMoney { get; set; }
-        public Nullable<int> Quantity { get; set; }
-    
-        public virtual Food Food { get; set; }
-        public virtual Invoice Invoice { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

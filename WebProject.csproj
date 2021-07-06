@@ -194,7 +194,6 @@
     <Compile Include="Areas\Admin\Controllers\TypeOfFoodController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Context\DbContextLocal.cs" />
-    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SelfUserController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -202,7 +201,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mapper\ForumMap.cs" />
+    <Compile Include="Models\BasicSetting.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Comment.cs">
       <DependentUpon>FoodDBModel.tt</DependentUpon>
@@ -210,7 +211,16 @@
     <Compile Include="Models\Contact.cs">
       <DependentUpon>FoodDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DetailedInvoice.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityProfile.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityProfileItem.cs">
       <DependentUpon>FoodDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Food.cs">
@@ -231,7 +241,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FoodDBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Forum.cs" />
+    <Compile Include="Models\Forum.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Invoice.cs">
       <DependentUpon>FoodDBModel.tt</DependentUpon>
     </Compile>
@@ -386,13 +398,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
-    <EntityDeploy Include="Models\FoodDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FoodDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\FoodDBModel.edmx.diagram">
-      <DependentUpon>FoodDBModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\TypeOfFood\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TypeOfFood\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\TypeOfFood\Details.cshtml" />
@@ -434,6 +439,13 @@
     <Content Include="Areas\Admin\fonts\fontawesome-webfont.woff" />
     <Content Include="Areas\Admin\fonts\fontawesome-webfont.woff2" />
     <Content Include="Areas\Admin\fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Models\FoodDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FoodDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FoodDBModel.edmx.diagram">
+      <DependentUpon>FoodDBModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -551,6 +563,10 @@
     <Content Include="Views\SelfUser\Details.cshtml" />
     <Content Include="Views\SelfUser\Edit.cshtml" />
     <Content Include="Views\SelfUser\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\ShoppingCart\Success.cshtml" />
+    <Content Include="Views\Home\Food_Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

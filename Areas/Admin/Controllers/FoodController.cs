@@ -13,7 +13,7 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class FoodController : BaseController
     {
-        private WebProjectEntitiesDB db = new WebProjectEntitiesDB();
+        private WebProjectEntitiesDB1 db = new WebProjectEntitiesDB1();
 
         // GET: Admin/Food
         public ActionResult Index()
@@ -54,8 +54,17 @@ namespace WebProject.Areas.Admin.Controllers
             
             if (ModelState.IsValid)
             {
-                int id = int.Parse(db.Foods.ToList().Last().ID.ToString());
-
+                var test = db.Foods.ToList();
+                int id;
+                if (test.Count==0)
+                {
+                    id = 0;
+                }
+                else
+                {
+                    id = int.Parse(db.Foods.ToList().Last().ID.ToString());
+                }
+                 
                 string fileName = "";
                 int id1 = id + 1;
                 int index = image.FileName.IndexOf('.');

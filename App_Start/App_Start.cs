@@ -11,9 +11,12 @@ using WebProject.DataBase;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebProject.App_Start), "PreStart")]
 
-namespace WebProject {
-    public static class App_Start {
-        public static void PreStart() {
+namespace WebProject
+{
+    public static class App_Start
+    {
+        public static void PreStart()
+        {
             FluentStartup.Initialize(typeof(DbContextLocal));
         }
     }

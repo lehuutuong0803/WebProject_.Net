@@ -62,6 +62,17 @@
                     </tbody>
                     <tfoot>
                         <tr>
+                            <td>
+                                @using (Html.BeginForm("Order", "ShoppingCart"))
+                                {
+                                    <label>Ghi Chu</label>
+                                    <input type="text" name="Note" />
+                                    <button type="submit">Đặt Hàng</button>
+                                }
+
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="5" style="text-align:right">Tổng tiền: @Model.Total() VND</td>
                         </tr>
                     </tfoot>

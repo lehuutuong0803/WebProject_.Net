@@ -12,7 +12,7 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class UserController : BaseController 
     {
-        private WebProjectEntitiesDB db = new WebProjectEntitiesDB();
+        private WebProjectEntitiesDB1 db = new WebProjectEntitiesDB1();
 
         // GET: Admin/User
         public ActionResult Index()

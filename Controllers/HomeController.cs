@@ -1,12 +1,13 @@
 ﻿using System.Web.Mvc;
 using WebProject.Models;
 using System.Linq;
+using System.Net;
 
 namespace WebProject.Controllers
 {
     public class HomeController : Controller
     {
-        WebProjectEntitiesDB dbcontext = new WebProjectEntitiesDB();
+        WebProjectEntitiesDB1 dbcontext = new WebProjectEntitiesDB1();
 
         public ActionResult Index()
         {
@@ -27,13 +28,24 @@ namespace WebProject.Controllers
 
             return View();
         }
-        public ActionResult Company()
+        public ActionResult Menu()
         {
-            return View();
+            var list = dbcontext.Foods.ToList();
+            return View(list);
         }
-        public ActionResult Furniture()
+        public ActionResult Food_Detail(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Food food = dbcontext.Foods.Find(id);
+            if (food == null)
+            {
+                return HttpNotFound();
+            }
+            return View(food);
         }
+
     }
 }
