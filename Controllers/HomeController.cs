@@ -49,6 +49,8 @@ namespace WebProject.Controllers
 
         public ActionResult Stuff()
         {
+          //  var list = dbcontext.Stuff.ToList();
+
             return View();
         }
 
