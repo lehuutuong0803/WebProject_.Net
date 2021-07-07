@@ -143,7 +143,7 @@ namespace WebProject.Controllers
                     user.PassWord = NewPW1;
                     db.Entry(user).State = EntityState.Modified;
                     db.SaveChanges();
-                    chuoi = "Cập nhật mật khẩu thành công";
+                    chuoi = "Cập nhật mật khẩu thành công!";
                     ViewBag.Update = chuoi;
                     return View("ChangePW");
                 }

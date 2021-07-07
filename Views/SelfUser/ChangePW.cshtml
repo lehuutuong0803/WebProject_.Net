@@ -3,14 +3,44 @@
     ViewBag.Title = "ChangePW";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script>
+    function myFunction() {
+        var x = document.getElementsByClassName("pstu");
+        if (x[0].type === "password") {
+            x[0].type = "text";
+            x[1].type = "text";
+            x[2].type = "text";
+        } else {
+            x[0].type = "password";
+            x[1].type = "password";
+            x[2].type = "password";
+        }
+    }
+</script>
+<style>
+    a, a:hover {
+        color: #333
+    }
+</style>
 
-<h2>ChangePW</h2>
-<h3>@ViewBag.Update</h3>
-@using (Html.BeginForm("ChangePW", "SelfUser"))
-{
-    <input type="password" name="OldPW" style="width:400px" placeholder="Nhập Mật Khẩu Cũ" />
-    <input type="password" name="NewPW1" style="width:400px" placeholder="Nhập Mật Khẩu Mới" />
-    <input type="password" name="NewPW2" style="width:400px" placeholder="Nhập lại Mật Khẩu mới" />
-    <button type="submit" >Thay đổi mật khẩu</button>
-}
+<h2 style="text-align:center;">Thay đổi mật khẩu:</h2>
+<div style="text-align:center;">
+    @using (Html.BeginForm("ChangePW", "SelfUser"))
+    {
+        <input type="password" class="pstu" name="OldPW" style="width:400px" placeholder="Nhập Mật Khẩu Cũ" />
+        <br /> <br />
+        <input type="password" class="pstu" name="NewPW1" style="width:400px" placeholder="Nhập Mật Khẩu Mới" />
+        <br /> <br />
+        <input type="password" class="pstu" name="NewPW2" style="width:400px" placeholder="Nhập lại Mật Khẩu mới" />
+        <br /> <br />
+        <h4>Hiển thị mật khẩu: <input type="checkbox" onclick="myFunction()"></h4>
+        <br /> 
+
+        <button type="submit" class="btn btn-secondary" >Thay đổi mật khẩu</button>
+        <h3 style="text-align:center;color:red">@ViewBag.Update</h3>
+
+
+    }
+</div>
+
 

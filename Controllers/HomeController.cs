@@ -47,5 +47,10 @@ namespace WebProject.Controllers
             return View(food);
         }
 
+        public ActionResult Stuff()
+        {
+            return View();
+        }
+
     }
 }
