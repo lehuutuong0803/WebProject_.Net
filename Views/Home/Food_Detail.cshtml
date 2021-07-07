@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Food_Detail</h2>
+<h2 style="text-align:center">Chi tiết món ăn</h2>
+<hr />
 
-<div>
-    <h4>Food</h4>
-    <hr />
+<div style="position:relative;left:150px;">
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FoodName)
+            Tên món ăn:
         </dt>
 
         <dd>
@@ -20,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+            Giá:
         </dt>
 
         <dd>
@@ -28,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IDType)
+            Mã món ăn:
         </dt>
 
         <dd>
@@ -36,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Status)
+            Trạng thái:
         </dt>
 
         <dd>
@@ -44,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            Mô tả
         </dt>
 
         <dd>
@@ -52,16 +51,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Image)
         </dt>
 
-        <dd>
-            <img style="width:100px;height:100px" src="~/images/@Html.DisplayFor(model => model.Image)" />
-            
-        </dd>
 
     </dl>
 </div>
+<br />
+<br />
+<hr />
+
+<div style="position:absolute; left:650px; top:190px;">
+    <img style="width:650px;height:400px" src="~/images/@Html.DisplayFor(model => model.Image)" />
+
+</div>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Trở lại trang chủ", "Index", null, new { @class = "btn btn-secondary d-flex justify-content-center" });
 </p>
