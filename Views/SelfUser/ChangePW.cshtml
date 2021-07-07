@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "ChangePW";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ChangePW</h2>
+<h3>@ViewBag.Update</h3>
+@using (Html.BeginForm("ChangePW", "SelfUser"))
+{
+    <input type="password" name="OldPW" style="width:400px" placeholder="Nhập Mật Khẩu Cũ" />
+    <input type="password" name="NewPW1" style="width:400px" placeholder="Nhập Mật Khẩu Mới" />
+    <input type="password" name="NewPW2" style="width:400px" placeholder="Nhập lại Mật Khẩu mới" />
+    <button type="submit" >Thay đổi mật khẩu</button>
+}
+

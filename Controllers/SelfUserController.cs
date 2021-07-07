@@ -123,5 +123,45 @@ namespace WebProject.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult ChangePW()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePW(FormCollection s)
+        {
+            string chuoi = "";
+            string OldPW = s["OldPW"];
+            string NewPW1 = s["NewPW1"];
+            string NewPW2 = s["NewPW2"];
+            int id = (int)Session["UserIDCTM"];
+            User user = db.Users.Find(id);
+            if (OldPW == user.PassWord)
+            {
+                if(NewPW1 == NewPW2)
+                {
+                    user.PassWord = NewPW1;
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    chuoi = "Cập nhật mật khẩu thành công";
+                    ViewBag.Update = chuoi;
+                    return View("ChangePW");
+                }
+                else
+                {
+                    chuoi = "Mật khẩu mới không khớp nhau. Vui Lòng thử lại!!!";
+                    ViewBag.Update = chuoi;
+                    return View("ChangePW");
+                }
+              
+            }
+            else
+            {
+
+                chuoi = "Mật khẩu hiện tại không chính xác. Vui Lòng thử lại!!!";
+                ViewBag.Update = chuoi;
+                return View("ChangePW");
+            }
+        }
     }
 }
