@@ -13,10 +13,10 @@ namespace WebProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebProjectEntitiesDB1 : DbContext
+    public partial class WebProjectEntitiesDB4 : DbContext
     {
-        public WebProjectEntitiesDB1()
-            : base("name=WebProjectEntitiesDB1")
+        public WebProjectEntitiesDB4()
+            : base("name=WebProjectEntitiesDB4")
         {
         }
     
@@ -35,6 +35,7 @@ namespace WebProject.Models
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<Forum> Fora { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<Stuff> Stuffs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfFood> TypeOfFoods { get; set; }
         public virtual DbSet<User> Users { get; set; }

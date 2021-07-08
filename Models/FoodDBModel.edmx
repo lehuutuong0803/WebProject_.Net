@@ -120,6 +120,13 @@
           <Property Name="Date" Type="datetime" />
           <Property Name="Status" Type="int" />
         </EntityType>
+        <EntityType Name="Stuff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="NameStuff" Type="nchar" MaxLength="10" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -244,6 +251,7 @@
           <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Forum" EntityType="Self.Forum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stuff" EntityType="Self.Stuff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeOfFood" EntityType="Self.TypeOfFood" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -407,6 +415,13 @@
           <NavigationProperty Name="DetailedInvoices" Relationship="Self.FK_DetailedInvoice_Invoice" FromRole="Invoice" ToRole="DetailedInvoice" />
           <NavigationProperty Name="User" Relationship="Self.FK_Invoice_User" FromRole="Invoice" ToRole="User" />
         </EntityType>
+        <EntityType Name="Stuff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="NameStuff" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -523,7 +538,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WebProjectEntitiesDB1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WebProjectEntitiesDB4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="BasicSettings" EntityType="Self.BasicSetting" />
           <EntitySet Name="Comments" EntityType="Self.Comment" />
@@ -534,6 +549,7 @@
           <EntitySet Name="Foods" EntityType="Self.Food" />
           <EntitySet Name="Fora" EntityType="Self.Forum" />
           <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Stuffs" EntityType="Self.Stuff" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TypeOfFoods" EntityType="Self.TypeOfFood" />
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -571,7 +587,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebProjectModelStoreContainer" CdmEntityContainer="WebProjectEntitiesDB1">
+        <EntityContainerMapping StorageEntityContainer="WebProjectModelStoreContainer" CdmEntityContainer="WebProjectEntitiesDB4">
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="WebProjectModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
@@ -692,6 +708,14 @@
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stuffs">
+            <EntityTypeMapping TypeName="WebProjectModel.Stuff">
+              <MappingFragment StoreEntitySet="Stuff">
+                <ScalarProperty Name="NameStuff" ColumnName="NameStuff" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

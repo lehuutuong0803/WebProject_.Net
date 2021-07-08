@@ -10,8 +10,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="heading-title text-center">
-                    <h2>Stuff</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                    <h2>Fouders</h2>
+                    <p>6 là đầu bếp hàng đầu cũng như là fouder của chuỗi nhà hàng!</p>
                 </div>
             </div>
         </div>
@@ -25,8 +25,26 @@
                         </ul>
                     </div>
                     <div class="team-content">
-                        <h3 class="title">Williamson</h3>
-                        <span class="post">Web Developer</span>
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 6)
+                                {<p>
+                                        @item.NameStuff
+                                    </p>
+                                }
+                            }
+                                            </h3>
+                        <span class="post">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 6)
+                                {<p>
+                                      Id: @item.Id
+                                    </p>
+                                }
+                            }
+                        </span>
                     </div>
                 </div>
             </div>
@@ -43,8 +61,26 @@
                         </ul>
                     </div>
                     <div class="team-content">
-                        <h3 class="title">Kristiana</h3>
-                        <span class="post">Web Designer</span>
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 1)
+                                {<p>
+                                        @item.NameStuff
+                                    </p>
+                                }
+                            }
+                                            </h3>
+                        <span class="post">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 1)
+                                {<p>
+                                        Id: @item.Id
+                                    </p>
+                                }
+                            }
+                                            </span>
                     </div>
                 </div>
             </div>
@@ -59,8 +95,26 @@
                         </ul>
                     </div>
                     <div class="team-content">
-                        <h3 class="title">Steve Thomas</h3>
-                        <span class="post">Web Developer</span>
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 2)
+                                {<p>
+                                        @item.NameStuff
+                                    </p>
+                                }
+                            }
+                                            </h3>
+                        <span class="post">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 2)
+                                {<p>
+                                        Id: @item.Id
+                                    </p>
+                                }
+                            }
+                                            </span>
                     </div>
                 </div>
             </div>
@@ -75,8 +129,26 @@
                         </ul>
                     </div>
                     <div class="team-content">
-                        <h3 class="title">Williamson</h3>
-                        <span class="post">Web Developer</span>
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 3)
+                                {<p>
+                                        @item.NameStuff
+                                    </p>
+                                }
+                            }
+                                            </h3>
+                        <span class="post">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 3)
+                                {<p>
+                                        Id: @item.Id
+                                    </p>
+                                }
+                            }
+                                            </span>
                     </div>
                 </div>
             </div>
@@ -91,8 +163,26 @@
                         </ul>
                     </div>
                     <div class="team-content">
-                        <h3 class="title">Kristiana</h3>
-                        <span class="post">Web Designer</span>
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 4)
+                                {<p>
+                                        @item.NameStuff
+                                    </p>
+                                }
+                            }
+                                            </h3>
+                        <span class="post">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 4)
+                                {<p>
+                                        Id: @item.Id
+                                    </p>
+                                }
+                            }
+                                            </span>
                     </div>
                 </div>
             </div>
@@ -106,9 +196,26 @@
                         </ul>
                     </div>
                     <div class="team-content">
-                        <h3 class="title">Steve Thomas</h3>
-                        <span class="post">Web Developer</span>
-                    </div>
+                        <h3 class="title">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Id == 5)
+                                {<p>
+                                        @item.NameStuff
+                                    </p>
+                                }
+                            }
+                            <span class="post">
+                                @foreach (var item in Model)
+                                {
+                                    if (item.Id == 5)
+                                    {<p>
+                                            Id: @item.Id
+                                        </p>
+                                    }
+                                }
+                            </span>
+</div>
                 </div>
             </div>
         </div>
@@ -121,8 +228,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="heading-title text-center">
-                    <h2>Customer Reviews</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                    <h2>Đánh giá của người dùng</h2>
+                    <p>Là các review được thu nhặt ngẫu hiên của người dùng đánh giá!</p>
                 </div>
             </div>
         </div>
@@ -134,26 +241,19 @@
                             <div class="img-box p-1 border rounded-circle m-auto">
                                 <img class="d-block w-100 rounded-circle" src="~/images/quotations-button.png" alt="">
                             </div>
-                            <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Paul Mitchel</strong></h5>
-                            <h6 class="text-dark m-0">Web Developer</h6>
-                            <p class="m-0 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+                            <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Phận Nhật Vạm</strong></h5>
+                            <h6 class="text-dark m-0">CEO BIDV</h6>
+                            <p class="m-0 pt-3">Tuyệt vời xứng đáng nhânnj 10 sao mê-chơ-lin</p>
                         </div>
                         <div class="carousel-item text-center">
                             <div class="img-box p-1 border rounded-circle m-auto">
                                 <img class="d-block w-100 rounded-circle" src="~/images/quotations-button.png" alt="">
                             </div>
-                            <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Steve Fonsi</strong></h5>
-                            <h6 class="text-dark m-0">Web Designer</h6>
-                            <p class="m-0 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+                            <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Phạm Nhật Vượng</strong></h5>
+                            <h6 class="text-dark m-0">Nhân viên văn phòng</h6>
+                            <p class="m-0 pt-3">Giá cả đi đôi với chất lượng.</p>
                         </div>
-                        <div class="carousel-item text-center">
-                            <div class="img-box p-1 border rounded-circle m-auto">
-                                <img class="d-block w-100 rounded-circle" src="~/images/quotations-button.png" alt="">
-                            </div>
-                            <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Daniel vebar</strong></h5>
-                            <h6 class="text-dark m-0">Seo Analyst</h6>
-                            <p class="m-0 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
-                        </div>
+
                     </div>
                     <a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
                         <i class="fa fa-angle-left" aria-hidden="true"></i>

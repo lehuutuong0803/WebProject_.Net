@@ -9,7 +9,7 @@ namespace WebProject.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        WebProjectEntitiesDB1 db = new WebProjectEntitiesDB1();
+        WebProjectEntitiesDB4 db = new WebProjectEntitiesDB4();
 
 
         public ActionResult Index()

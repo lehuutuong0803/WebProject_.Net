@@ -12,7 +12,7 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class CommentsController : BaseController
     {
-        private WebProjectEntitiesDB1 db = new WebProjectEntitiesDB1();
+        private WebProjectEntitiesDB4 db = new WebProjectEntitiesDB4();
 
         // GET: Admin/Comments
         public ActionResult Index()

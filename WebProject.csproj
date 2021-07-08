@@ -247,6 +247,9 @@
     <Compile Include="Models\Invoice.cs">
       <DependentUpon>FoodDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Stuff.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>FoodDBModel.tt</DependentUpon>
     </Compile>
@@ -569,6 +572,7 @@
     <Content Include="Views\Home\Food_Detail.cshtml" />
     <Content Include="Views\SelfUser\ChangePW.cshtml" />
     <Content Include="Views\Home\Stuff.cshtml" />
+    <Content Include="Views\Home\Reservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

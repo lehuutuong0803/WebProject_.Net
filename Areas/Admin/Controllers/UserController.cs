@@ -12,11 +12,12 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class UserController : BaseController 
     {
-        private WebProjectEntitiesDB1 db = new WebProjectEntitiesDB1();
+        private WebProjectEntitiesDB4 db = new WebProjectEntitiesDB4();
 
         // GET: Admin/User
         public ActionResult Index()
         {
+            
             return View(db.Users.ToList());
         }
 

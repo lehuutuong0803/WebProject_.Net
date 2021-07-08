@@ -12,7 +12,7 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class TypeOfFoodController : BaseController
     {
-        private WebProjectEntitiesDB1 db = new WebProjectEntitiesDB1();
+        private WebProjectEntitiesDB4 db = new WebProjectEntitiesDB4();
 
         // GET: Admin/TypeOfFood
         public ActionResult Index()

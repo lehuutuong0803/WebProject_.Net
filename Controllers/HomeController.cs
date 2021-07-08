@@ -7,7 +7,7 @@ namespace WebProject.Controllers
 {
     public class HomeController : Controller
     {
-        WebProjectEntitiesDB1 dbcontext = new WebProjectEntitiesDB1();
+        WebProjectEntitiesDB4 dbcontext = new WebProjectEntitiesDB4();
 
         public ActionResult Index()
         {
@@ -49,9 +49,16 @@ namespace WebProject.Controllers
 
         public ActionResult Stuff()
         {
-          //  var list = dbcontext.Stuff.ToList();
+            var list = dbcontext.Stuffs.ToList();
 
-            return View();
+            return View(list);
+        }
+
+        public ActionResult Reservation()
+        {
+            var userNow = dbcontext.Users.Find(Session["UserIDCTM"]);
+            ViewBag.userNow = userNow;
+            return View(userNow);
         }
 
     }
