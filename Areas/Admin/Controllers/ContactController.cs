@@ -12,7 +12,7 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class ContactController : BaseController
     {
-        private WebProjectEntitiesDB4 db = new WebProjectEntitiesDB4();
+        private WebProjectEntities5 db = new WebProjectEntities5();
 
         // GET: Admin/Contact
         public ActionResult Index()

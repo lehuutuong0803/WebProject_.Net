@@ -120,6 +120,18 @@
           <Property Name="Date" Type="datetime" />
           <Property Name="Status" Type="int" />
         </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Date" Type="nchar" MaxLength="30" />
+          <Property Name="Time" Type="nchar" MaxLength="10" />
+          <Property Name="AmoutPerson" Type="int" />
+          <Property Name="NameTheBooker" Type="nchar" MaxLength="30" />
+          <Property Name="EmailTheBooker" Type="nchar" MaxLength="30" />
+          <Property Name="NumberTheBooker" Type="nchar" MaxLength="30" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="Stuff">
           <Key>
             <PropertyRef Name="Id" />
@@ -251,6 +263,7 @@
           <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Forum" EntityType="Self.Forum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stuff" EntityType="Self.Stuff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeOfFood" EntityType="Self.TypeOfFood" Schema="dbo" store:Type="Tables" />
@@ -415,6 +428,18 @@
           <NavigationProperty Name="DetailedInvoices" Relationship="Self.FK_DetailedInvoice_Invoice" FromRole="Invoice" ToRole="DetailedInvoice" />
           <NavigationProperty Name="User" Relationship="Self.FK_Invoice_User" FromRole="Invoice" ToRole="User" />
         </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Date" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Time" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AmoutPerson" Type="Int32" />
+          <Property Name="NameTheBooker" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="EmailTheBooker" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="NumberTheBooker" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="Stuff">
           <Key>
             <PropertyRef Name="Id" />
@@ -538,7 +563,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WebProjectEntitiesDB4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WebProjectEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="BasicSettings" EntityType="Self.BasicSetting" />
           <EntitySet Name="Comments" EntityType="Self.Comment" />
@@ -549,6 +574,7 @@
           <EntitySet Name="Foods" EntityType="Self.Food" />
           <EntitySet Name="Fora" EntityType="Self.Forum" />
           <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservation" />
           <EntitySet Name="Stuffs" EntityType="Self.Stuff" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TypeOfFoods" EntityType="Self.TypeOfFood" />
@@ -587,7 +613,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebProjectModelStoreContainer" CdmEntityContainer="WebProjectEntitiesDB4">
+        <EntityContainerMapping StorageEntityContainer="WebProjectModelStoreContainer" CdmEntityContainer="WebProjectEntities5">
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="WebProjectModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
@@ -708,6 +734,19 @@
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="WebProjectModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="AmoutPerson" ColumnName="AmoutPerson" />
+                <ScalarProperty Name="NameTheBooker" ColumnName="NameTheBooker" />
+                <ScalarProperty Name="EmailTheBooker" ColumnName="EmailTheBooker" />
+                <ScalarProperty Name="NumberTheBooker" ColumnName="NumberTheBooker" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

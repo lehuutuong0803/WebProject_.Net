@@ -10,112 +10,106 @@ using WebProject.Models;
 
 namespace WebProject.Areas.Admin.Controllers
 {
-    public class InvoicesController : BaseController
+    public class ReservationsADMController : Controller
     {
         private WebProjectEntities5 db = new WebProjectEntities5();
 
-        // GET: Admin/Invoices
+        // GET: Admin/ReservationsADM
         public ActionResult Index()
         {
-            var invoices = db.Invoices.Include(i => i.User);
-            return View(invoices.ToList());
+            return View(db.Reservations.ToList());
         }
 
-        // GET: Admin/Invoices/Details/5
+        // GET: Admin/ReservationsADM/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invoice invoice = db.Invoices.Find(id);
-            if (invoice == null)
+            Reservation reservation = db.Reservations.Find(id);
+            if (reservation == null)
             {
                 return HttpNotFound();
             }
-            return View(invoice);
+            return View(reservation);
         }
 
-        // GET: Admin/Invoices/Create
+        // GET: Admin/ReservationsADM/Create
         public ActionResult Create()
         {
-            ViewBag.IDCustomer = new SelectList(db.Users, "ID", "UserName");
             return View();
         }
 
-        // POST: Admin/Invoices/Create
+        // POST: Admin/ReservationsADM/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,IDCustomer,TotalPrice,Note,Date,Status")] Invoice invoice)
+        public ActionResult Create([Bind(Include = "Date,Time,AmoutPerson,NameTheBooker,EmailTheBooker,NumberTheBooker,Id")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
-                db.Invoices.Add(invoice);
+                db.Reservations.Add(reservation);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IDCustomer = new SelectList(db.Users, "ID", "UserName", invoice.IDCustomer);
-            return View(invoice);
+            return View(reservation);
         }
 
-        // GET: Admin/Invoices/Edit/5
+        // GET: Admin/ReservationsADM/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invoice invoice = db.Invoices.Find(id);
-            if (invoice == null)
+            Reservation reservation = db.Reservations.Find(id);
+            if (reservation == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IDCustomer = new SelectList(db.Users, "ID", "UserName", invoice.IDCustomer);
-            return View(invoice);
+            return View(reservation);
         }
 
-        // POST: Admin/Invoices/Edit/5
+        // POST: Admin/ReservationsADM/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,IDCustomer,TotalPrice,Note,Date,Status")] Invoice invoice)
+        public ActionResult Edit([Bind(Include = "Date,Time,AmoutPerson,NameTheBooker,EmailTheBooker,NumberTheBooker,Id")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(invoice).State = EntityState.Modified;
+                db.Entry(reservation).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IDCustomer = new SelectList(db.Users, "ID", "UserName", invoice.IDCustomer);
-            return View(invoice);
+            return View(reservation);
         }
 
-        // GET: Admin/Invoices/Delete/5
+        // GET: Admin/ReservationsADM/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invoice invoice = db.Invoices.Find(id);
-            if (invoice == null)
+            Reservation reservation = db.Reservations.Find(id);
+            if (reservation == null)
             {
                 return HttpNotFound();
             }
-            return View(invoice);
+            return View(reservation);
         }
 
-        // POST: Admin/Invoices/Delete/5
+        // POST: Admin/ReservationsADM/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Invoice invoice = db.Invoices.Find(id);
-            db.Invoices.Remove(invoice);
+            Reservation reservation = db.Reservations.Find(id);
+            db.Reservations.Remove(reservation);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

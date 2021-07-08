@@ -9,7 +9,7 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class AuthController : Controller
     {
-        WebProjectEntitiesDB4 dbcontext = new WebProjectEntitiesDB4();
+        WebProjectEntities5 dbcontext = new WebProjectEntities5();
 
         // GET: Admin/Auth  
         public ActionResult Login()

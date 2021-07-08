@@ -191,6 +191,7 @@
     <Compile Include="Areas\Admin\Controllers\DetailedInvoiceController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodController.cs" />
     <Compile Include="Areas\Admin\Controllers\InvoicesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReservationsADMController.cs" />
     <Compile Include="Areas\Admin\Controllers\TypeOfFoodController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Context\DbContextLocal.cs" />
@@ -245,6 +246,9 @@
       <DependentUpon>FoodDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Invoice.cs">
+      <DependentUpon>FoodDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reservation.cs">
       <DependentUpon>FoodDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Stuff.cs">
@@ -449,6 +453,11 @@
     <Content Include="Models\FoodDBModel.edmx.diagram">
       <DependentUpon>FoodDBModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\ReservationsADM\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ReservationsADM\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ReservationsADM\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ReservationsADM\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ReservationsADM\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

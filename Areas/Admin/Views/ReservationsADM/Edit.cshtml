@@ -1,0 +1,79 @@
+﻿@model WebProject.Models.Reservation
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chỉnh sửa đặt bàn:</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="padding-left:40px;">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            Ngày:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Giờ:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Số người:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AmoutPerson, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AmoutPerson, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Tên:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NameTheBooker, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NameTheBooker, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Gmail:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmailTheBooker, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailTheBooker, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            SĐT:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumberTheBooker, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumberTheBooker, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Sửa" class="btn btn-danger" />
+            </div>
+        </div>
+
+
+    </div>
+}
+
+<div style="padding-left:40px;">
+    @Html.ActionLink("Trở lại danh sách", "Index")
+</div>

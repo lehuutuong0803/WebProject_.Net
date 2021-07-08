@@ -1,0 +1,71 @@
+﻿@model WebProject.Models.Reservation
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center">Bạn có chắc chắn muốn xóa bình luận này?</h2>
+
+<div style="text-align:center">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Ngày:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            Giờ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            Số người:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmoutPerson)
+        </dd>
+
+        <dt>
+            Tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameTheBooker)
+        </dd>
+
+        <dt>
+            Gmail:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailTheBooker)
+        </dd>
+
+        <dt>
+            SĐT:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberTheBooker)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+<div class="form-actions no-color">
+    <input type="submit" value="Xóa" class="btn btn-danger" /> 
+    <br />
+    @Html.ActionLink("Trở lại danh sách", "Index")
+</div>
+    }
+</div>

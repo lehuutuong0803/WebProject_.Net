@@ -7,7 +7,7 @@ namespace WebProject.Controllers
 {
     public class HomeController : Controller
     {
-        WebProjectEntitiesDB4 dbcontext = new WebProjectEntitiesDB4();
+        WebProjectEntities5 dbcontext = new WebProjectEntities5();
 
         public ActionResult Index()
         {
@@ -60,6 +60,22 @@ namespace WebProject.Controllers
             ViewBag.userNow = userNow;
             return View(userNow);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Reservation([Bind(Include = "Date,Time,AmoutPerson,NameTheBooker,EmailTheBooker,NumberTheBooker,Id")] Reservation reservation)
+        {
+            if (ModelState.IsValid)
+            {
+                dbcontext.Reservations.Add(reservation);
+                dbcontext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(reservation);
+        }
+
+
+
 
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dbf7830cdece408cb6ce425924401482" Name="Diagram1">
+      <Diagram DiagramId="b63666ec055847a7a3f5688b2217dfde" Name="Diagram1">
         <EntityTypeShape EntityType="WebProjectModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="WebProjectModel.BasicSetting" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="WebProjectModel.Comment" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
@@ -15,8 +15,9 @@
         <EntityTypeShape EntityType="WebProjectModel.Food" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WebProjectModel.Forum" Width="1.5" PointX="2.75" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="WebProjectModel.Invoice" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjectModel.Stuff" Width="1.5" PointX="10.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjectModel.sysdiagram" Width="1.5" PointX="4.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.Reservation" Width="1.5" PointX="10.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.Stuff" Width="1.5" PointX="4.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjectModel.sysdiagram" Width="1.5" PointX="6.75" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="WebProjectModel.TypeOfFood" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="WebProjectModel.User" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
         <AssociationConnector Association="WebProjectModel.FK_Comment_Food" ManuallyRouted="false" />
