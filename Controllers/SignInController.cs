@@ -73,6 +73,9 @@ namespace WebProject.Controllers
         {
             Session["Status"] = null;
             Session["CustomerName"] = null;
+            Session["UserCTM"] = null;
+            Session["UserIDCTM"] = null;
+            Session["UserCTMPhoneNumber"] = null;
             Response.Redirect("~/Home/Index");
             return null;
         }

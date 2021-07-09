@@ -6,7 +6,12 @@
 }
 
 <h2>Index</h2>
-
+<div>
+    @using (Html.BeginForm("Index", "Invoices", FormMethod.Get))
+    {<input type="text" placeholder="Nhập ID UserName cần tìm" name="username" />
+        <button class="btn btn-danger" type="submit"> Tìm </button>
+    }
+</div>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

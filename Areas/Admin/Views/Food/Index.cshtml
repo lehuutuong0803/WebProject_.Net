@@ -6,12 +6,17 @@
 }
 
 <h2 style="text-align:center">Danh sách thực đơn</h2>
-
+<div>
+    @using (Html.BeginForm("Index", "Food", FormMethod.Get))
+    {<input type="text" placeholder="Nhập tên món cần tìm" name="foodname" />
+        <button class="btn btn-danger" type="submit"> Tìm </button>
+    }
+</div>
 <p>
     <button class="btn btn-secondary">@Html.ActionLink(" Tạo mới", "Create", null, new { @class = "fa fa-plus fa-lg" })</button>
 </p>
 <table class="table table-hover table-secondary table-striped" style="text-align:center">
-        <tr>
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.FoodName)
         </th>
@@ -35,31 +40,31 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.FoodName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Status)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Description)
-    </td>
-    <td>
-       <img style="width:50px;height:50px" src="~/images/@item.Image"/> 
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TypeOfFood.TypeName)
-    </td>
-    <td>
-        <button class="btn btn-outline-secondary"> @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "fa fa-edit fa-lg" })</button>
-        <button class="btn btn-outline-primary"> @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "fa fa-info fa-lg" })</button>
-        <button class="btn btn-outline-danger"> @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "fa fa-trash fa-lg" })</button>
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <img style="width:50px;height:50px" src="~/images/@item.Image" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfFood.TypeName)
+            </td>
+            <td>
+                <button class="btn btn-outline-secondary"> @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "fa fa-edit fa-lg" })</button>
+                <button class="btn btn-outline-primary"> @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "fa fa-info fa-lg" })</button>
+                <button class="btn btn-outline-danger"> @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "fa fa-trash fa-lg" })</button>
+            </td>
+        </tr>
     }
 
 </table>

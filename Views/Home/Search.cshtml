@@ -1,0 +1,70 @@
+﻿@model WebProject.Models.Food
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="menu-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2>Thực đơn</h2>
+                    <p>Tất cả tinh hoa ẩm thực</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form action="~/Home/Search" method="post">
+                <input type="text" placeholder="Nhập tên món cần tìm" name="foodname" />
+                <button class="btn btn-danger" type="submit"> Tìm </button>
+            </form>
+        </div>
+        <div class="row inner-menu-box" style="margin-top:10px">
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#TatCa" role="tab" aria-controls="v-pills-home" aria-selected="true">Tất cả</a>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="TatCa" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="row">
+
+
+
+                            <div class="col-lg-4 col-md-6 special-grid drinks" style="text-align:center;">
+                                <div class="gallery-single fix">
+                                    <img src="~/images/@Model.Image" class="img-fluid" alt="Image">
+                                    <div class="why-text">
+                                        <h4>@Model.FoodName</h4>
+                                        <p>@Model.Description</p>
+                                        <h5>
+                                            @Model.Price
+
+                                        </h5>
+                                        <a href="~/Home/Food_Detail/@Model.ID" class="fa fa-info-circle fa-2x"></a>
+                                        <a href="~/ShoppingCart/AddToCart/@Model.ID" class="fa fa-cart-plus fa-2x"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+

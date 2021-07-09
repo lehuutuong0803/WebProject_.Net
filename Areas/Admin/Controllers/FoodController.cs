@@ -16,10 +16,15 @@ namespace WebProject.Areas.Admin.Controllers
         private WebProjectEntities5 db = new WebProjectEntities5();
 
         // GET: Admin/Food
-        public ActionResult Index()
+        public ActionResult Index(string foodname)
         {
-            var foods = db.Foods.Include(f => f.TypeOfFood);
-            return View(foods.ToList());
+            IQueryable<Food> model = db.Foods.Include(f => f.TypeOfFood);
+            if (!string.IsNullOrEmpty(foodname))
+            {
+                model = model.Where(x => x.FoodName.Contains(foodname)).OrderBy(x => x.ID);
+            }
+
+            return View(model);
         }
 
         // GET: Admin/Food/Details/5

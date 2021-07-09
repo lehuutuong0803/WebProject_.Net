@@ -15,10 +15,15 @@ namespace WebProject.Areas.Admin.Controllers
         private WebProjectEntities5 db = new WebProjectEntities5();
 
         // GET: Admin/User
-        public ActionResult Index()
+        public ActionResult Index(string username)
         {
-            
-            return View(db.Users.ToList());
+            IQueryable<User> model = db.Users;
+            if (!string.IsNullOrEmpty(username))
+            {
+                model = model.Where(x => x.UserName.Contains(username)).OrderBy(x => x.ID);
+            }
+
+            return View(model);
         }
 
         // GET: Admin/User/Details/5

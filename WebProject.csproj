@@ -582,6 +582,7 @@
     <Content Include="Views\SelfUser\ChangePW.cshtml" />
     <Content Include="Views\Home\Stuff.cshtml" />
     <Content Include="Views\Home\Reservation.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

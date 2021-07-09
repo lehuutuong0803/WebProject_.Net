@@ -28,11 +28,18 @@ namespace WebProject.Controllers
 
             return View();
         }
-        public ActionResult Menu()
+        public ActionResult Menu(string foodname)
         {
-            var list = dbcontext.Foods.ToList();
-            return View(list);
+            IQueryable<Food> model = dbcontext.Foods;
+            if(!string.IsNullOrEmpty(foodname))
+            {
+                model = model.Where(x => x.FoodName.Contains(foodname)).OrderBy(x => x.ID);
+            } 
+           
+            return View(model);
         }
+
+
         public ActionResult Food_Detail(int? id)
         {
             if (id == null)
@@ -59,7 +66,7 @@ namespace WebProject.Controllers
             var userNow = dbcontext.Users.Find(Session["UserIDCTM"]);
             ViewBag.userNow = userNow;
             return View(userNow);
-        }
+        }   
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Reservation([Bind(Include = "Date,Time,AmoutPerson,NameTheBooker,EmailTheBooker,NumberTheBooker,Id")] Reservation reservation)

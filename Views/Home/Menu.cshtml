@@ -14,8 +14,13 @@
                 </div>
             </div>
         </div>
-
-        <div class="row inner-menu-box">
+        <div>
+            @using (Html.BeginForm("Menu", "Home", FormMethod.Get))
+            { <input type="text" placeholder="Nhập tên món cần tìm" name="foodname" />
+                <button class="btn btn-danger" type="submit"> Tìm </button>
+            }
+</div>
+        <div class="row inner-menu-box" style="margin-top:10px">
             <div class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#TatCa" role="tab" aria-controls="v-pills-home" aria-selected="true">Tất cả</a>
