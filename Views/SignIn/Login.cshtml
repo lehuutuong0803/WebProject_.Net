@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -18,73 +18,146 @@
             margin: 0px;
             width: auto;
         }
+        #shared-body-2, #shared-body-1{
+            display: none;
+        }
     </style>
+
 </head>
 <body>
     <h2>Chào mừng đến với Dinner Live Restaurant!</h2>
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form action="~/SignIn/Login" method="post">
-                <h1>Tạo tài khoản</h1>
-                <div class="social-container" id="social-container">
-                    <a href="#" class=" fa fa-google"></a>
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
+    <div>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="~/SignIn/Login" method="post">
+                    <h1>Tạo tài khoản</h1>
+                    <input type="text" placeholder="Tên Tài Khoản" name="tentaikhoan" />
+                    <input type="password" placeholder="Mật Khẩu" name="matkhau" />
+                    <input type="email" placeholder="Email" name="email" />
+                    <input type="text" placeholder="Họ Tên" name="hoten" />
+                    <input type="text" placeholder="Địa Chỉ" name="diachi" />
+                    <input type="text" placeholder="SDT" name="sdt" />
+                    <button type="submit" value="Register ">Đăng Ký</button>
+
+                </form>
+            </div>
+
+            <div class="form-container sign-in-container">
+                <form action="~/SignIn/Login1" method="post">
+                    <h1>Đăng nhập</h1>
+                    <div class="social-container" >
+                        <div style=" position: absolute; left: 50%; transform: translate(-50%, -50%);"  class="g-signin2" data-onsuccess="onSignIn"></div>
+
+                    </div>
+                    <br />
+                    <span>Đăng ký và đăng nhập tự động bằng Google!</span>
+                    <p class="text-danger">@ViewBag.Inform</p>
+                    <input type="text" placeholder="Tên đăng nhập" name="tentaikhoan" />
+                    <input type="password" placeholder="Mật khẩu" name="matkhau" />
+                    <a href="#">Quên mật khẩu?</a>
+                    <button type="submit">Đăng Nhập</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Chào mừng trở lại</h1>
+                        <p>Nếu bạn là người cũ, hãy đăng nhập ở đây</p>
+                        <button class="ghost" id="signIn">Đăng nhập</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Xin Chào!</h1>
+                        <p>Hãy đăng ký tài khoản để bắt đầu cuộc hành trình với chúng tôi.</p>
+                        <button class="ghost" id="signUp">Đăng ký</button>
+                    </div>
                 </div>
-                <span>Hoặc dùng gmail để đăng ký</span>
-
-                <input type="text" placeholder="Tên Tài Khoản" name="tentaikhoan" />
-                <input type="password" placeholder="Mật Khẩu" name="matkhau" />
-                <input type="email" placeholder="Email" name="email" />
-                <input type="text" placeholder="Họ Tên" name="hoten" />
-                <input type="text" placeholder="Địa Chỉ" name="diachi" />
-                <input type="text" placeholder="SDT" name="sdt" />
-                <button type="submit" value="Register">Đăng Ký</button>
-
-
-            </form>
+            </div>
         </div>
 
-        <div class="form-container sign-in-container">
-            <form action="~/SignIn/Login1" method="post">
-                <h1>Đăng nhập</h1>
-                <div class="social-container">
-                    <a href="#" class=" fa fa-google"></a>
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                </div>
-                <span>Đăng nhập với tài khoản khác</span>
-                <p class="text-danger">@ViewBag.Inform</p>
-                <input type="text" placeholder="Tên đăng nhập" name="tentaikhoan" />
-                <input type="password" placeholder="Mật khẩu" name="matkhau" />
-                <a href="#">Quên mật khẩu?</a>
-                <button type="submit">Đăng Nhập</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Chào mừng trở lại</h1>
-                    <p>Nếu bạn là người cũ, hãy đăng nhập ở đây</p>
-                    <button class="ghost" id="signIn">Đăng nhập</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Xin Chào!</h1>
-                    <p>Hãy đăng ký tài khoản để bắt đầu cuộc hành trình với chúng tôi.</p>
-                    <button class="ghost" id="signUp">Đăng ký</button>
-                </div>
+
+        <footer>
+            <p>
+                Created with <i class="fa fa-heart"></i> by
+                <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+                - Read how I created this and how you can join the challenge
+                <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+            </p>
+        </footer>
+
+
+    </div>
+
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+    <div hidden>
+        <div class="container" >
+            <div class="form-container sign-up-container">
+                <form action="~/SignIn/Login" method="post">
+                    <input id="DKName" type="text" placeholder="Tên Tài Khoản" name="tentaikhoan" />
+                    <input id="DKPs" type="password" placeholder="Mật Khẩu" name="matkhau" />
+                    <input id="DKGmail" type="email" placeholder="Email" name="email" />
+                    <input id="DKName" type="text" placeholder="Họ Tên" name="hoten" />
+                    <input id="DKAdress" type="text" placeholder="Địa Chỉ" name="diachi" />
+                    <input id="DKSDT" type="text" placeholder="SDT" name="sdt" />
+                    <button type="submit" value="Register ">Đăng Ký</button>
+                    <input id="DKSubmit" type="submit" hidden>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="~/SignIn/Login1" method="post">
+                    <span>Đăng nhập với tài khoản khác</span>
+                    <p class="text-danger">@ViewBag.Inform</p>
+                    <input id="DNUserName" type="text" placeholder="Tên đăng nhập" name="tentaikhoan" />
+                    <input id="DNPassWord" type="password" placeholder="Mật khẩu" name="matkhau" />
+                    <a href="#">Quên mật khẩu?</a>
+                    <input id="DNSubmit" type="submit" hidden>
+                </form>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>
-            Created with <i class="fa fa-heart"></i> by
-            <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-            - Read how I created this and how you can join the challenge
-            <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-        </p>
-    </footer>
     <script src="~/js/js-login.js"></script>
 </body>
 </html>
+
+
+<script>
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+
+        document.getElementById("DKName").value = profile.getId();
+        document.getElementById("DKPs").value = profile.getId();
+        document.getElementById("DKGmail").value = profile.getEmail();
+        document.getElementById("DKAdress").value = "";
+        document.getElementById("DKSDT").value = "";
+
+        document.getElementById("DNUserName").value = profile.getId();
+        document.getElementById("DNPassWord").value = profile.getId();
+
+        document.getElementById("DKSubmit").click();
+
+        document.getElementById("DNSubmit").click();
+
+
+
+    }
+
+
+    function checkxx(googleUser) {
+        document.getElementById("contentx").innerHTML = googleUser.getBasicProfile().getName();
+
+    }
+
+
+
+
+
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
