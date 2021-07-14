@@ -26,6 +26,7 @@
 </head>
 <body>
     <h2>Chào mừng đến với Dinner Live Restaurant!</h2>
+    <a href="#" class="btn" onclick="signOut();">Log out</a>
     <div>
         <div class="container" id="container">
             <div class="form-container sign-up-container">
@@ -45,8 +46,8 @@
             <div class="form-container sign-in-container">
                 <form action="~/SignIn/Login1" method="post">
                     <h1>Đăng nhập</h1>
-                    <div class="social-container" >
-                        <div style=" position: absolute; left: 50%; transform: translate(-50%, -50%);"  class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <div class="social-container">
+                        <div style=" position: absolute; left: 50%; transform: translate(-50%, -50%);" class="g-signin2" data-onsuccess="onSignIn"></div>
 
                     </div>
                     <br />
@@ -89,7 +90,7 @@
 
     <!--///////////////////////////////////////////////////////////////////////////////////////////////-->
     <div hidden>
-        <div class="container" >
+        <div class="container">
             <div class="form-container sign-up-container">
                 <form action="~/SignIn/Login" method="post">
                     <input id="DKName" type="text" placeholder="Tên Tài Khoản" name="tentaikhoan" />
@@ -115,6 +116,18 @@
         </div>
     </div>
 
+
+
+
+    <div hidden class="form-container sign-in-container">
+        <form action="~/SignIn/verifyGoogle" method="post">
+            <input id="IdToken" type="text"  name="IdToken" />
+            <input id="SubIdToken" type="submit" hidden>
+        </form>
+    </div>
+
+
+
     <script src="~/js/js-login.js"></script>
 </body>
 </html>
@@ -126,7 +139,7 @@
         console.log('ID: ' + profile.getId());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail());
-
+        /*
         document.getElementById("DKName").value = profile.getId();
         document.getElementById("DKPs").value = profile.getId();
         document.getElementById("DKGmail").value = profile.getEmail();
@@ -139,8 +152,15 @@
         document.getElementById("DKSubmit").click();
 
         document.getElementById("DNSubmit").click();
+        https://localhost:44342/SignIn/Login
+
+*/
 
 
+        document.getElementById("IdToken").value = googleUser.getAuthResponse().id_token;
+
+        document.getElementById("SubIdToken").click();
+      
 
     }
 

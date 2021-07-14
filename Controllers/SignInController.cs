@@ -1,9 +1,11 @@
-﻿    using System;
+﻿using Google.Apis.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebProject.Models;
+using Xunit;
 
 namespace WebProject.Controllers
 {
@@ -77,6 +79,42 @@ namespace WebProject.Controllers
             Session["UserIDCTM"] = null;
             Session["UserCTMPhoneNumber"] = null;
             Response.Redirect("~/Home/Index");
+            return null;
+        }
+
+        [HttpPost,ActionName("verifyGoogle")]
+        public async System.Threading.Tasks.Task<ActionResult> verifyGoogleAsync(FormCollection values)
+        {
+            var exa = values["idtoken"];
+            
+            var validPayload = await GoogleJsonWebSignature.ValidateAsync(exa);
+
+
+            Session["exaIdToken"] = validPayload.Audience;
+            if ( validPayload == null
+                || validPayload.Audience.ToString() != "841081615376-3hbsvqkqpj1u4p943gpj93v0ki62tmjo.apps.googleusercontent.com")
+                Response.Redirect("~/Home/Index");
+
+            else
+            {
+                User user = new User();
+                user.UserName = validPayload.Subject;
+                user.PassWord = validPayload.Subject;
+                user.Email = validPayload.Email;
+                user.Name = validPayload.Name;
+                user.Address = "";
+                user.SDT = "";
+                var search = db.Users.Where(m => m.UserName == user.UserName).FirstOrDefault();
+                if (search == null)
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
+            }
+
+            Login(validPayload.Subject, validPayload.Subject);
+            Response.Redirect("~/Home/Index");
+
             return null;
         }
 
