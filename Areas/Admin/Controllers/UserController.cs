@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,7 +16,7 @@ namespace WebProject.Areas.Admin.Controllers
         private WebProjectEntities5 db = new WebProjectEntities5();
 
         // GET: Admin/User
-        public ActionResult Index(string username)
+        public ActionResult Index(string username, int page = 1, int pageSize = 9)
         {
             IQueryable<User> model = db.Users;
             if (!string.IsNullOrEmpty(username))
@@ -23,7 +24,7 @@ namespace WebProject.Areas.Admin.Controllers
                 model = model.Where(x => x.UserName.Contains(username)).OrderBy(x => x.ID);
             }
 
-            return View(model);
+            return View(model.OrderBy(x => x.ID).ToPagedList(page, pageSize));
         }
 
         // GET: Admin/User/Details/5

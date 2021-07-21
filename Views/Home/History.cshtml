@@ -1,0 +1,67 @@
+﻿@model PagedList.IPagedList<WebProject.Models.Invoice>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>History</h2>
+<table class="table">
+    <tr>
+        <th>
+            Id Hóa đơn
+        </th>
+        <th>
+            Tổng giá
+        </th>
+        <th>
+            Ghi chú
+        </th>
+        <th>
+            Ngày mua
+        </th>
+        <th>
+            Tên khách hàng
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+
+                @if (item.Status == 0)
+                {
+                    <h3 style="background-color:red;width:160px"> Đơn đang hoàn thành</h3>
+                }
+                else
+                {
+                    <h3 style="background-color:deepskyblue;width:160px"> HĐ đã hoàn thành</h3>
+                }
+            </td>
+            <td>
+                <a href="~/ShoppingCart/Details/@item.ID">Chi tiết</a>|
+            </td>
+        </tr>
+    }
+</table>
+<h2 style="color:brown">Trang @Html.PagedListPager(Model, page => Url.Action("History", new { page }))</h2>

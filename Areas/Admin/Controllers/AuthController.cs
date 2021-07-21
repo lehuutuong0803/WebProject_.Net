@@ -22,7 +22,7 @@ namespace WebProject.Areas.Admin.Controllers
         {
             String username = s["username"];
             String password = s["password"];
-            User user = dbcontext.Users.Where(m => m.UserName == username && m.PassWord == password)
+            User user = dbcontext.Users.Where(m => m.UserName == username && m.PassWord == password && m.ID==1)
                 .FirstOrDefault();
 
             int y = dbcontext.Users.Where(m => true).Count();

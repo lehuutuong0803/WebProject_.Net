@@ -1,5 +1,5 @@
-﻿@model IEnumerable<WebProject.Models.Food>
-
+﻿@model PagedList.IPagedList<WebProject.Models.Food>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -18,22 +18,25 @@
 <table class="table table-hover table-secondary table-striped" style="text-align:center">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FoodName)
+            Id
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            Tên món
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            Giá
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Trạng thái
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Image)
+            Mô Tả
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TypeOfFood.TypeName)
+            Hình ảnh
+        </th>
+        <th>
+            Loại món ăn
         </th>
         <th> Tác Vụ</th>
     </tr>
@@ -41,6 +44,9 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FoodName)
             </td>
@@ -68,3 +74,4 @@
     }
 
 </table>
+<h2 style="color:brown">Trang @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</h2>

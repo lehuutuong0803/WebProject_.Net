@@ -2,6 +2,7 @@
 using WebProject.Models;
 using System.Linq;
 using System.Net;
+using PagedList;
 
 namespace WebProject.Controllers
 {
@@ -28,15 +29,22 @@ namespace WebProject.Controllers
 
             return View();
         }
-        public ActionResult Menu(string foodname)
+        public ActionResult Menu(string foodname,int id =0,int page = 1,int pageSize = 9 )
         {
             IQueryable<Food> model = dbcontext.Foods;
             if(!string.IsNullOrEmpty(foodname))
             {
-                model = model.Where(x => x.FoodName.Contains(foodname)).OrderBy(x => x.ID);
-            } 
+                model = (IQueryable<Food>)model.Where(x => x.FoodName.Contains(foodname));
+            }
+            if(id ==0)
+            {    
+            }
+            else
+            {
+                model = model.Where(x => x.IDType == id);
+            }
            
-            return View(model);
+            return View(model.OrderBy(x => x.ID).ToPagedList(page, pageSize));
         }
 
 
@@ -80,9 +88,19 @@ namespace WebProject.Controllers
 
             return View(reservation);
         }
-
-
-
-
+        public ActionResult History(int page = 1, int pageSize = 5)
+        {
+            int id;
+            if (System.Web.HttpContext.Current.Session["UserIDCTM"].Equals(""))
+            {
+                return Content("Bạn chưa đăng nhập hoặc xuất hiện lỗi bất ngờ. Vui lòng thử lại!");
+            }
+            else
+            {
+                id = (int)Session["UserIDCTM"];
+                IQueryable<Invoice> history = dbcontext.Invoices.Where(s => s.IDCustomer == id);
+                    return View(history.OrderBy(x => x.ID).ToPagedList(page, pageSize));
+            }       
+        }
     }
 }

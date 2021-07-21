@@ -28,7 +28,7 @@ namespace WebProject.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DetailedInvoice detailedInvoice = db.DetailedInvoices.Find(id);
+            var detailedInvoice = db.DetailedInvoices.Where(s => s.IDInvoice == id).ToList();
             if (detailedInvoice == null)
             {
                 return HttpNotFound();

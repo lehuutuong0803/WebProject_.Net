@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PagedList;
+using PagedList.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -16,7 +18,7 @@ namespace WebProject.Areas.Admin.Controllers
         private WebProjectEntities5 db = new WebProjectEntities5();
 
         // GET: Admin/Food
-        public ActionResult Index(string foodname)
+        public ActionResult Index(string foodname, int page = 1, int pageSize = 9)
         {
             IQueryable<Food> model = db.Foods.Include(f => f.TypeOfFood);
             if (!string.IsNullOrEmpty(foodname))
@@ -24,7 +26,7 @@ namespace WebProject.Areas.Admin.Controllers
                 model = model.Where(x => x.FoodName.Contains(foodname)).OrderBy(x => x.ID);
             }
 
-            return View(model);
+            return View(model.OrderBy(x => x.ID).ToPagedList(page, pageSize));
         }
 
         // GET: Admin/Food/Details/5

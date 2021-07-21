@@ -1,5 +1,5 @@
-﻿@model IEnumerable<WebProject.Models.User>
-
+﻿@model PagedList.IPagedList<WebProject.Models.User>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -19,22 +19,22 @@
 <table class="table table-hover table-secondary table-striped" style="text-align:center">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserName)
+            Tài khoản
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PassWord)
+            Mật khẩu
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Tên khách hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
+            Địa chỉ
+        </th>
+        <th>    
+            Số điện thoại
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </th>
         <th> Tác Vụ </th>
     </tr>
@@ -69,3 +69,4 @@
     }
 
 </table>
+<h2 style="color:brown">Trang @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</h2>

@@ -55,7 +55,7 @@
                         @total VND
                     </td>
                     <td>
-                        <a href="~/ShoppingCart/RemoveCart/@item.food_Cart.ID">Xóa</a>
+                        <a href="~/ShoppingCart/RemoveCart/@item.food_Cart.ID" onclick="Bạn có muốn xóa món ăn này ?">Xóa</a>
                     </td>
                 </tr>
             }
@@ -74,7 +74,7 @@
         {
             <h4> Ghi Chú: </h4>
             <input type="text" name="Note" style="width:400px" />
-            <button type="submit" class="btn btn-dark">Đặt Hàng</button>
+            <button type="submit" class="btn btn-dark" onclick="Bạn còn muốn đặt món nào nữa trước khi đặt hàng không ?">Đặt Hàng</button>
         }
     </div>
 

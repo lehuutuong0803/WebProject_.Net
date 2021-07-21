@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<WebProject.Models.DetailedInvoice>
-
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2 style="text-align:center">Chi tiết hóa đơn</h2>
@@ -11,13 +10,13 @@
 <table class="table table-hover table-secondary table-striped">
     <tr>
         <th>
-           Tên Món
+            Tên Món
         </th>
         <th>
-           Id Loại Món Ăn
+            Id Loại Món Ăn
         </th>
         <th>
-           Hình Ảnh
+            Hình Ảnh
         </th>
         <th>
             Số lượng
@@ -52,7 +51,4 @@
         </tr>
     }
 </table>
-<p style="text-align:center">
-    @Html.ActionLink("Chỉnh sửa", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Trở lại danh sách", "Index")
-</p>
+

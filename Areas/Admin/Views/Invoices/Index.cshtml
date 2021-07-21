@@ -1,63 +1,87 @@
-﻿@model IEnumerable<WebProject.Models.Invoice>
-
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-}
-
-<h2>Index</h2>
-<div>
-    @using (Html.BeginForm("Index", "Invoices", FormMethod.Get))
-    {<input type="text" placeholder="Nhập ID UserName cần tìm" name="username" />
-        <button class="btn btn-danger" type="submit"> Tìm </button>
+﻿@model PagedList.IPagedList<WebProject.Models.Invoice>
+@using PagedList.Mvc;
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     }
-</div>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Note)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.UserName)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Note)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.UserName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    <h2>Index</h2>
+    <div>
+        @using (Html.BeginForm("Index", "Invoices", FormMethod.Get))
+        {<input type="text" placeholder="Nhập ID UserName cần tìm" name="username" />
+            <button class="btn btn-danger" type="submit"> Tìm </button>
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <a href="~/Admin/Invoices/ExportExcel">Xuat Excel</a>
+    <h1> @ViewBag.Inform</h1>
+    <table class="table">
+        <tr>
+            <th>
+                Id khách hàng
+            </th>
+            <th>
+                Tổng giá
+            </th>
+            <th>
+                Ghi chú
+            </th>
+            <th>
+                Ngày mua
+            </th>
+            <th>
+                Tài khoàn
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDCustomer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+
+                <td>
+                    @using (Html.BeginForm("Tracking", "Invoices"))
+                    {
+                        if (item.Status == 0)
+                        {
+                            <input type="hidden" name="idIV" value="@item.ID" />
+                            <button type="submit" style="background-color:red" onclick="return confirm('Bạn có chắc đơn hàng nãy đã thành công ?')"> HĐ chưa hoàn thành </button>
+                        }
+                        else
+                        {
+                            <h3 style="background-color:deepskyblue;width:160px"> HĐ đã hoàn thành</h3>
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    <a href="~/Admin/DetailedInvoice/Details/@item.ID">Chi tiết</a>|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <h2 style="color:brown">Trang @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</h2>
