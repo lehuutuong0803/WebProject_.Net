@@ -17,7 +17,7 @@
     </p>
     <a href="~/Admin/Invoices/ExportExcel">Xuat Excel</a>
     <h1> @ViewBag.Inform</h1>
-    <table class="table">
+    <table class="table" style="text-align:center;">
         <tr>
             <th>
                 Id khách hàng
@@ -37,50 +37,50 @@
             <th>
                 Trạng thái
             </th>
-            <th></th>
+            <th> Tác Vụ </th>
         </tr>
 
         @foreach (var item in Model)
         {
 
-            <tr>
+    <tr>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.IDCustomer)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Note)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User.UserName)
-                </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDCustomer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
 
-                <td>
-                    @using (Html.BeginForm("Tracking", "Invoices"))
-                    {
-                        if (item.Status == 0)
-                        {
-                            <input type="hidden" name="idIV" value="@item.ID" />
-                            <button type="submit" style="background-color:red" onclick="return confirm('Bạn có chắc đơn hàng nãy đã thành công ?')"> HĐ chưa hoàn thành </button>
-                        }
-                        else
-                        {
-                            <h3 style="background-color:deepskyblue;width:160px"> HĐ đã hoàn thành</h3>
-                        }
-                    }
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    <a href="~/Admin/DetailedInvoice/Details/@item.ID">Chi tiết</a>|
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
+        <td>
+            @using (Html.BeginForm("Tracking", "Invoices"))
+            {
+                if (item.Status == 0)
+                {
+                    <input type="hidden" name="idIV" value="@item.ID" />
+                    <button type="submit" style="background-color:red;text-align:center;border-radius:20px;" onclick="return confirm('Bạn có chắc đơn hàng nãy đã thành công ?')"> HĐ chưa hoàn thành </button>
+                }
+                else
+                {
+                    <h3 style="background-color:deepskyblue;text-align:center;border-radius:20px;"> HĐ đã hoàn thành</h3>
+                }
+            }
+        </td>
+        <td>
+            <button class="btn btn-outline-secondary"> @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "fa fa-edit fa-lg" })</button>
+            <button class="btn btn-outline-primary"> @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "fa fa-info fa-lg" })</button>
+            <button class="btn btn-outline-danger"> @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "fa fa-trash fa-lg" })</button>
+        </td>
+    </tr>
         }
 
     </table>

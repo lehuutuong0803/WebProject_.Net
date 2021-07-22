@@ -41,6 +41,19 @@
             right: 100px;
             z-index: 100000000;
         }
+
+
+
+        .pagination li {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .pagination-container {
+            text-align: center;
+            background-color: aliceblue;
+            border-radius: 20px;
+        }
     </style>
     <meta name="google-signin-client_id"
           content="841081615376-3hbsvqkqpj1u4p943gpj93v0ki62tmjo.apps.googleusercontent.com">
@@ -55,7 +68,7 @@
 
     if (Session["Status"] != null) { text = "Đăng Xuất"; hre = "/SignIn/Logout"; cart_show = "normal"; }
 }
-<body>
+<body style="font-family: Arial, sans-serif;">
     <div style="display:none;">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <a href="#" class="btn" onclick="signOut();"></a>
@@ -83,7 +96,7 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="~/Home/Index">Trang Chủ</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="~/Home/Menu">Menu</a></li>
+                            <li class="nav-item"><a class="nav-link" href="~/Home/Menu">Thực Đơn</a></li>
                             <li class="nav-item">
                                 <a class="nav-link" href="~/Home/History">Lịch Sử</a>
                             </li>                          
@@ -169,10 +182,11 @@
                         <p class="lead">74, đường số 9, Linh Tây, Thủ Đức</p>
                         <p class="lead"><a href="#">+01 2000 800 9999</a></p>
                         <p><a href="#"> HuuTuong@admin.com</a></p>
+                        <p><a href="#"> XuanTu@admin.com</a></p>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3>Giờ Hoạt Động</h3>
-                        <p><span class="text-color">T2: </span>Đóng cửa</p>
+                        <p><span class="text-color">T2-T2 :     </span>Đóng cửa</p>
                         <p><span class="text-color">T3-T4 :</span> 6PM - 12PM</p>
                         <p><span class="text-color">T5-T6 :</span> 6PM - 12PM</p>
                         <p><span class="text-color">T7-CN :</span> 6PM - 12PM</p>

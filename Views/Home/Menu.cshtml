@@ -4,31 +4,46 @@
     ViewBag.Title = "Menu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    .pagination li {
+        padding: 20px;
+        text-align: center;
+    }
+    .pagination-container {
+        text-align: center;
+        background-color: aliceblue;
+        border-radius: 20px;
+        
+    }
+</style>
 <div class="menu-box">
-    <div class="container">
-        <div class="row">
+    <div class="container"  style="background-color:lightblue;border-radius:20px;">
+        <div class="row" style="background-color:#d65106;border-radius:20px 20px 0px 00px;font-family: Verdana, sans-serif;">
             <div class="col-lg-12">
-                <div class="heading-title text-center">
-                    <h2>Thực đơn</h2>
+                <div class="heading-title text-center" style="font-family: Verdana, sans-serif;color:white;">
+                    <br />
+                    <h2 style="font-family: Verdana, sans-serif;color:white;">Thực đơn</h2>
                     <p>Tất cả tinh hoa ẩm thực</p>
                 </div>
             </div>
         </div>
-        <div>
+        <div style="padding-top: 30px; text-align:center;">
             @using (Html.BeginForm("Menu", "Home", FormMethod.Get))
             { <input type="text" placeholder="Nhập tên món cần tìm" name="foodname" />
                 <button class="btn btn-danger" type="submit"> Tìm </button>
             }
-</div>
-        <div class="row inner-menu-box" style="margin-top:10px">
+        </div>
+        <div class="row inner-menu-box" style="padding-top: 30px; padding-bottom: 20px">
             <div class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" href="~/Home/Menu/0"  aria-selected="true"> Tất cả </a>
-                    <a class="nav-link active" href="~/Home/Menu/1"  aria-selected="false"> Nước uống</a>
-                    <a class="nav-link active" href="~/Home/Menu/2"  aria-selected="false"> Ăn trưa</a>
-                    <a class="nav-link active" href="~/Home/Menu/3"  aria-selected="false"> Ăn tối</a>
-                    
+                    <a class="nav-link active" href="~/Home/Menu/0" aria-selected="true"> Tất cả </a>
+                    <br />
+                    <a class="nav-link active" href="~/Home/Menu/1" aria-selected="false"> Nước uống</a>
+                    <br />
+                    <a class="nav-link active" href="~/Home/Menu/2" aria-selected="false"> Ăn trưa</a>
+                    <br />
+                    <a class="nav-link active" href="~/Home/Menu/3" aria-selected="false"> Ăn tối</a>
+
 
                 </div>
             </div>
@@ -58,7 +73,9 @@
                                 </div>
                             }
                         </div>
-                        <h2 style="color:brown">Trang @Html.PagedListPager(Model, page => Url.Action("Menu", new { page }))</h2>
+                        <h3 style="text-align:center;color:chocolate"><strong>Danh mục trang</strong></h3>
+                        <h2 style="color:brown;"> @Html.PagedListPager(Model, page => Url.Action("Menu", new { page }))</h2>
+                   
                     </div>
                     
 

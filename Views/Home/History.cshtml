@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>History</h2>
-<table class="table">
+<h2 style="text-align:center;"> Lịch sử mua hàng</h2>
+<table class="table" style="text-align:center;">
     <tr>
         <th>
             Id Hóa đơn
@@ -26,7 +26,7 @@
         <th>
             Trạng thái
         </th>
-        <th></th>
+        <th>Tác vụ</th>
     </tr>
 
     @foreach (var item in Model)
@@ -51,17 +51,19 @@
 
                 @if (item.Status == 0)
                 {
-                    <h3 style="background-color:red;width:160px"> Đơn đang hoàn thành</h3>
+                    <h3 style="background-color:red;text-align:center;border-radius:20px;"> Đơn đang hoàn thành</h3>
                 }
                 else
                 {
-                    <h3 style="background-color:deepskyblue;width:160px"> HĐ đã hoàn thành</h3>
+                    <h3 style="background-color:deepskyblue;text-align:center;border-radius:20px;"> HĐ đã hoàn thành</h3>
                 }
             </td>
             <td>
-                <a href="~/ShoppingCart/Details/@item.ID">Chi tiết</a>|
+                <a href="~/ShoppingCart/Details/@item.ID">Chi tiết</a>
             </td>
         </tr>
     }
 </table>
-<h2 style="color:brown">Trang @Html.PagedListPager(Model, page => Url.Action("History", new { page }))</h2>
+<h3 style="text-align:center;color:chocolate"><strong>Danh mục trang</strong></h3>
+
+<h2 style="color:brown"> @Html.PagedListPager(Model, page => Url.Action("History", new { page }))</h2>
