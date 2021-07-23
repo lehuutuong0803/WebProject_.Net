@@ -249,65 +249,62 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BasicSetting.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Comment.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Contact.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DetailedInvoice.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityProfile.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityProfileItem.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Food.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FoodDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FoodDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FoodDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FoodDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FoodDBModel.edmx</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Forum.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Invoice.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Reservation.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Stuff.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TypeOfFood.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>FoodDBModel.tt</DependentUpon>
+      <DependentUpon>xuantudb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\xuantudb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xuantudb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\xuantudb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xuantudb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\xuantudb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xuantudb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -409,15 +406,15 @@
     <Content Include="js\picker.js" />
     <Content Include="js\picker.time.js" />
     <Content Include="js\popper.min.js" />
-    <Content Include="Models\FoodDBModel.Context.tt">
+    <Content Include="Models\xuantudb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FoodDBModel.edmx</DependentUpon>
-      <LastGenOutput>FoodDBModel.Context.cs</LastGenOutput>
+      <DependentUpon>xuantudb.edmx</DependentUpon>
+      <LastGenOutput>xuantudb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\FoodDBModel.tt">
+    <Content Include="Models\xuantudb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FoodDBModel.edmx</DependentUpon>
-      <LastGenOutput>FoodDBModel.cs</LastGenOutput>
+      <DependentUpon>xuantudb.edmx</DependentUpon>
+      <LastGenOutput>xuantudb.cs</LastGenOutput>
     </Content>
     <Content Include="Public\css\LayoutSite.css" />
     <Content Include="readme.txt" />
@@ -493,18 +490,18 @@
     <Content Include="Areas\Admin\fonts\fontawesome-webfont.woff" />
     <Content Include="Areas\Admin\fonts\fontawesome-webfont.woff2" />
     <Content Include="Areas\Admin\fonts\FontAwesome.otf" />
-    <EntityDeploy Include="Models\FoodDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FoodDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\FoodDBModel.edmx.diagram">
-      <DependentUpon>FoodDBModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\ReservationsADM\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ReservationsADM\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ReservationsADM\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ReservationsADM\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ReservationsADM\Index.cshtml" />
+    <EntityDeploy Include="Models\xuantudb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>xuantudb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\xuantudb.edmx.diagram">
+      <DependentUpon>xuantudb.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

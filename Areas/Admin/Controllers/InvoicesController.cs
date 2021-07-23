@@ -17,7 +17,7 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class InvoicesController : BaseController
     {
-        private WebProjectEntities5 db = new WebProjectEntities5();
+        private WebProjectEntities db = new WebProjectEntities();
 
         // GET: Admin/Invoices
         public ActionResult Index(string username, int page = 1, int pageSize = 9)

@@ -11,7 +11,7 @@ namespace WebProject.Controllers
 {
     public class SignInController : Controller
     {
-        WebProjectEntities5 db = new WebProjectEntities5();
+        WebProjectEntities db = new WebProjectEntities();
         // GET: SignIn
         public ActionResult Login(  )
         {

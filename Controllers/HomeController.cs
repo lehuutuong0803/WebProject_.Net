@@ -8,7 +8,7 @@ namespace WebProject.Controllers
 {
     public class HomeController : Controller
     {
-        WebProjectEntities5 dbcontext = new WebProjectEntities5();
+        WebProjectEntities dbcontext = new WebProjectEntities();
 
         public ActionResult Index()
         {

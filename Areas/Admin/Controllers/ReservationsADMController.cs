@@ -12,7 +12,7 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class ReservationsADMController : Controller
     {
-        private WebProjectEntities5 db = new WebProjectEntities5();
+        private WebProjectEntities db = new WebProjectEntities();
 
         // GET: Admin/ReservationsADM
         public ActionResult Index()
