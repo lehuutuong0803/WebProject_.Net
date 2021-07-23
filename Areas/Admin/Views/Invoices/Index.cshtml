@@ -4,14 +4,30 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-<h2 style="text-align:center">Quản Lý Hóa Đơn</h2>
-<div style="padding-top: 30px; text-align:center;padding-bottom: 30px;">
-    @using (Html.BeginForm("Index", "Invoices", FormMethod.Get))
-    {<input type="text" placeholder="Nhập ID UserName cần tìm" name="username" />
-        <button class="btn btn-danger" type="submit"> Tìm </button>
+<style>
+    #holdxx {
+        margin: auto;
+        width: 50%;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom:30px;
     }
+</style>
+<h2 style="text-align:center">Quản Lý Hóa Đơn</h2>
+
+
+<div>
+    <div id="holdxx" style="margin-top:20px; padding: 3px 0px  3px 0px ; text-align:center;background-color:cornsilk;width:400px">
+        @using (Html.BeginForm("Index", "Invoices", FormMethod.Get))
+        {<input style="padding:3px" type="text" placeholder="Nhập ID UserName cần tìm" name="username" />
+            <button style="padding:5px 30px 5px  30px;" class="btn btn-danger" type="submit"> Tìm </button>
+        }
+    </div>
 </div>
+
+
+
 <p style="text-align:center">
     <button class="btn btn-secondary">@Html.ActionLink(" Tạo mới", "Create", null, new { @class = "fa fa-plus fa-lg" })</button>
     <a class="btn btn-danger" href="~/Admin/Invoices/ExportExcel">Xuất Excel</a>

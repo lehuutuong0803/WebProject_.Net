@@ -6,7 +6,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
+<style>
+    #holdxx {
+        margin: auto;
+        width: 50%;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
 <h2 style="text-align:center">Danh sách thực đơn</h2>
 <div style="padding-top: 30px; text-align:center;padding-bottom: 30px;">
     @using (Html.BeginForm("Index", "Food", FormMethod.Get))
@@ -14,6 +22,7 @@
         <button class="btn btn-danger" type="submit"> Tìm </button>
     }
 </div>
+
 <p style="text-align:center">
     <button class="btn btn-secondary">@Html.ActionLink(" Tạo mới", "Create", null, new { @class = "fa fa-plus fa-lg" })</button>
 </p>
