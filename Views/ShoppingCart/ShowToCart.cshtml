@@ -3,12 +3,28 @@
     ViewBag.Title = "ShowToCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+        width: 60%;
+        border: 3px solid black;
+        padding: 10px;
+    }
 
+    td, th {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align:center;
+    }
+
+</style>
 <h2 style="text-align:center;">Giỏ Hàng:</h2>
 @if (Model != null)
 {
-    <table class="table" style="text-align:center;">
-        <thead>
+    <table>
             <tr>
                 <th>
                     Tên món ăn
@@ -27,8 +43,6 @@
                 </th>
                 <th> Tác Vụ</th>
             </tr>
-        </thead>
-        <tbody style="width:500px;">
             @foreach (var item in Model.Items)
             {
                 double total = Convert.ToDouble(item.food_Cart.Price.Value * item.quantity_Cart);
@@ -45,10 +59,12 @@
                     <td style="text-align:right;">
                         @using (Html.BeginForm("Update_Quantity", "ShoppingCart"))
                         {
+                             <div style="text-align:center;">
                             <input type="hidden" value="@item.food_Cart.ID" name="ID_Food" />
-                            <input type="number" style="width:40px;text-align:center;margin-left:100px;" value="@item.quantity_Cart" name="Quantity" />
-                            <input type="submit" style="margin-left:0px;" value="Cập nhật số lượng" class=" btn btn-danger" />
-                        }
+                            <input type="number" style="width:40px;" value="@item.quantity_Cart" name="Quantity" />
+                            <input type="submit" style="margin-left:0px;padding:3px" value="Cập nhật số lượng" class=" btn btn-danger" />
+                            </div>
+                         }
 
                     </td>
                     <td>
@@ -59,7 +75,6 @@
                     </td>
                 </tr>
             }
-        </tbody>
 
     </table>
 

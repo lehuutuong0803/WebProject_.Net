@@ -15,34 +15,44 @@
         border-radius: 20px;
         
     }
+    #holdxx {
+        margin: auto;
+        width: 50%;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius:5px;
+    }
+    
 </style>
 <div class="menu-box">
-    <div class="container"  style="background-color:lightblue;border-radius:20px;">
-        <div class="row" style="background-color:#d65106;border-radius:20px 20px 0px 00px;font-family: Verdana, sans-serif;">
+    <div class="container"  style="background-color:white;border-radius:20px;">
+        <div class="row" style="background-color:antiquewhite;border-radius:20px 20px 0px 00px;font-family: Verdana, sans-serif;">
             <div class="col-lg-12">
-                <div class="heading-title text-center" style="font-family: Verdana, sans-serif;color:white;">
+                <div class="heading-title text-center" style="font-family: Verdana, sans-serif;">
                     <br />
-                    <h2 style="font-family: Verdana, sans-serif;color:white;">Thực đơn</h2>
+                    <h2 style="font-family: Verdana, sans-serif;;">Thực đơn</h2>
                     <p>Tất cả tinh hoa ẩm thực</p>
                 </div>
             </div>
         </div>
-        <div style="padding-top: 30px; text-align:center;">
-            @using (Html.BeginForm("Menu", "Home", FormMethod.Get))
-            { <input type="text" placeholder="Nhập tên món cần tìm" name="foodname" />
-                <button class="btn btn-danger" type="submit"> Tìm </button>
-            }
+        <div  >
+            <div id="holdxx" style="margin-top:20px; padding: 3px 0px  3px 0px ; text-align:center;background-color:cornsilk;width:400px">
+                @using (Html.BeginForm("Menu", "Home", FormMethod.Get))
+                {<input style="padding:3px" type="text" placeholder="Nhập tên món cần tìm" name="foodname" />
+                    <button style="padding:5px 30px 5px  30px;" class="btn btn-danger" type="submit"> Tìm </button>
+                }
+            </div>
         </div>
         <div class="row inner-menu-box" style="padding-top: 30px; padding-bottom: 20px">
-            <div class="col-3">
+            <div class="col-3" >
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" href="~/Home/Menu/0" aria-selected="true"> Tất cả </a>
+                    <a style="background-color:antiquewhite; color:black;" class="nav-link active" href="~/Home/Menu/0" aria-selected="true"> Tất cả </a>
                     <br />
-                    <a class="nav-link active" href="~/Home/Menu/1" aria-selected="false"> Nước uống</a>
+                    <a style="background-color:antiquewhite; color:black;" class="nav-link active" href="~/Home/Menu/1" aria-selected="false"> Nước uống</a>
                     <br />
-                    <a class="nav-link active" href="~/Home/Menu/2" aria-selected="false"> Ăn trưa</a>
+                    <a style="background-color:antiquewhite; color:black;" class="nav-link active" href="~/Home/Menu/2" aria-selected="false"> Ăn trưa</a>
                     <br />
-                    <a class="nav-link active" href="~/Home/Menu/3" aria-selected="false"> Ăn tối</a>
+                    <a style="background-color:antiquewhite; color:black;" class="nav-link active" href="~/Home/Menu/3" aria-selected="false"> Ăn tối</a>
 
 
                 </div>
@@ -58,7 +68,7 @@
 
                                 <div class="col-lg-4 col-md-6 special-grid drinks" style="text-align:center;">
                                     <div class="gallery-single fix">
-                                        <img src="~/images/@item.Image" class="img-fluid" alt="Image">
+                                        <img src="~/images/@item.Image" class="img-fluid" alt="Image" style="border: 2px solid black;">
                                         <div class="why-text">
                                             <h4>@Html.DisplayFor(modelItem => item.FoodName)</h4>
                                             <p>@Html.DisplayFor(modelItem => item.Description)</p>
