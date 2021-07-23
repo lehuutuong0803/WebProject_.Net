@@ -6,13 +6,13 @@
 }
 
 <h2 style="text-align:center">Danh sách thực đơn</h2>
-<div>
+<div style="padding-top: 30px; text-align:center;padding-bottom: 30px;">
     @using (Html.BeginForm("Index", "Food", FormMethod.Get))
     {<input type="text" placeholder="Nhập tên món cần tìm" name="foodname" />
         <button class="btn btn-danger" type="submit"> Tìm </button>
     }
 </div>
-<p>
+<p style="text-align:center">
     <button class="btn btn-secondary">@Html.ActionLink(" Tạo mới", "Create", null, new { @class = "fa fa-plus fa-lg" })</button>
 </p>
 <table class="table table-hover table-secondary table-striped" style="text-align:center">
@@ -74,4 +74,6 @@
     }
 
 </table>
-<h2 style="color:brown">Trang @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</h2>
+<h3 style="text-align:center;color:chocolate"><strong>Danh mục trang</strong></h3>
+
+<h2 style="color:brown"> @Html.PagedListPager(Model, page => Url.Action("History", new { page }))</h2>
