@@ -16,12 +16,17 @@
     }
 </style>
 <h2 style="text-align:center">Danh sách thực đơn</h2>
-<div style="padding-top: 30px; text-align:center;padding-bottom: 30px;">
-    @using (Html.BeginForm("Index", "Food", FormMethod.Get))
-    {<input type="text" placeholder="Nhập tên món cần tìm" name="foodname" />
-        <button class="btn btn-danger" type="submit"> Tìm </button>
-    }
+
+
+<div>
+    <div id="holdxx" style="margin-top:20px; padding: 3px 0px  3px 0px ; text-align:center;background-color:cornsilk;width:400px">
+        @using (Html.BeginForm("Index", "Food", FormMethod.Get))
+        {<input style="padding:3px" type="text" placeholder="Nhập tên món cần tìm" name="foodname" />
+            <button style="padding:5px 30px 5px  30px;" class="btn btn-danger" type="submit"> Tìm </button>
+        }
+    </div>
 </div>
+
 
 <p style="text-align:center">
     <button class="btn btn-secondary">@Html.ActionLink(" Tạo mới", "Create", null, new { @class = "fa fa-plus fa-lg" })</button>
