@@ -15,10 +15,11 @@ namespace WebProject.Areas.Admin.Controllers
 {
     public class FoodController : BaseController
     {
-        private WebProjectEntities5 db = new WebProjectEntities5();
+        private WebProjectEntities8 db = new WebProjectEntities8();
 
         // GET: Admin/Food
-        public ActionResult Index(string foodname, int page = 1, int pageSize = 9)
+
+        public ActionResult Index1(string foodname, int page = 1, int pageSize = 9)
         {
             IQueryable<Food> model = db.Foods.Include(f => f.TypeOfFood);
             if (!string.IsNullOrEmpty(foodname))
