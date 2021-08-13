@@ -12,7 +12,7 @@ namespace WebProject.Controllers
 {
     public class SelfUserController : Controller
     {
-        private WebProjectEntities5 db = new WebProjectEntities5();
+        private WebProjectEntities8 db = new WebProjectEntities8();
 
         // GET: SelfUser
         public ActionResult Index()

@@ -13,10 +13,10 @@ namespace WebProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebProjectEntities5 : DbContext
+    public partial class WebProjectEntities8 : DbContext
     {
-        public WebProjectEntities5()
-            : base("name=WebProjectEntities5")
+        public WebProjectEntities8()
+            : base("name=WebProjectEntities8")
         {
         }
     

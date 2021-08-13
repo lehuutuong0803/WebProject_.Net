@@ -119,6 +119,7 @@
           <Property Name="Note" Type="nvarchar" MaxLength="100" />
           <Property Name="Date" Type="datetime" />
           <Property Name="Status" Type="int" />
+          <Property Name="PayCode" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
@@ -425,6 +426,7 @@
           <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="Status" Type="Int32" />
+          <Property Name="PayCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DetailedInvoices" Relationship="Self.FK_DetailedInvoice_Invoice" FromRole="Invoice" ToRole="DetailedInvoice" />
           <NavigationProperty Name="User" Relationship="Self.FK_Invoice_User" FromRole="Invoice" ToRole="User" />
         </EntityType>
@@ -563,7 +565,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WebProjectEntities5" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WebProjectEntities8" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="BasicSettings" EntityType="Self.BasicSetting" />
           <EntitySet Name="Comments" EntityType="Self.Comment" />
@@ -613,7 +615,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WebProjectModelStoreContainer" CdmEntityContainer="WebProjectEntities5">
+        <EntityContainerMapping StorageEntityContainer="WebProjectModelStoreContainer" CdmEntityContainer="WebProjectEntities8">
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="WebProjectModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
@@ -734,6 +736,7 @@
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PayCode" ColumnName="PayCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
